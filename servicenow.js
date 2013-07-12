@@ -114,4 +114,27 @@
         		$("#ui-id-1").css('text-align','left');
 			$("#split_button_div").css('display', 'inline-block');
     		}, 500);
+    		
+    		// Call the doClosures() jQuery handlers
+    		
+    		doClosures();
 	}   
+	else if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/task_time_worked.do/)){ 
+	
+		//  --------------------------
+		// |      Do Workloads
+		//  --------------------------
+		
+		doWorkloads();
+	
+	}
+	
+	else if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/u_reminder.do/)){
+		
+		//  --------------------------
+		// |      Do Reminders
+		//  --------------------------
+
+		doReminders();
+
+	}
