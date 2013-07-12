@@ -72,47 +72,46 @@
 
     	//Only run on the location.do or urequest_do iFrame
 
-//  -----------------------------------------------------
-// | Work out if we're an Incident (ICM) or Request (SVR)
-//  -----------------------------------------------------
+	//  -----------------------------------------------------
+	// | Work out if we're an Incident (ICM) or Request (SVR)
+	//  -----------------------------------------------------
     
-   	var incidentRequest = "";
+   		var incidentRequest = "";
     
-    	if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/incident.do/)) { 
-        	incidentRequest = "incident";
-    	}
-    	else if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/u_request.do/)) {
-     		incidentRequest = "request";
-    	}
-    	else if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/change_request.do/)) {
-        	incidentRequest = "change";
-    	}
+    		if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/incident.do/)) { 
+        		incidentRequest = "incident";
+    		}
+    		else if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/u_request.do/)) {
+     			incidentRequest = "request";
+    		}
+    		else if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/change_request.do/)) {
+        		incidentRequest = "change";
+    		}
     
-    	console.log("Starting GM Script for "+incidentRequest);
+    		console.log("Starting GM Script for "+incidentRequest);
 
-//  -----------------------------------
-// | Load the jquery-ui css resource in
-//  -----------------------------------
+	//  -----------------------------------
+	// | Load the jquery-ui css resource in
+	//  -----------------------------------
 
-	var newCSS = GM_getResourceText ("customCSS");
-	GM_addStyle (newCSS);
+		var newCSS = GM_getResourceText ("customCSS");
+		GM_addStyle (newCSS);
 
-	var target=$("td.column_head:eq(2)");
-	var existingInner = target.html();
+		var target=$("td.column_head:eq(2)");
+		var existingInner = target.html();
 
-//  ---------------------------------------------
-// | getDropDown is defined in dropdown.js so that 
-// | we can fork for each department
-//  ---------------------------------------------
+	//  ---------------------------------------------
+	// | getDropDown is defined in dropdown.js so that 
+	// | we can fork for each department
+	//  ---------------------------------------------
     
-	var newButton = getDropDown();
+		var newButton = getDropDown();
     
-    	target.html(newButton + existingInner);
+    		target.html(newButton + existingInner);
 
-    	setTimeout(function() { 
-            $("#ui-id-1").css('position','absolute');
-        	$("#ui-id-1").css('text-align','left');
+    		setTimeout(function() { 
+            		$("#ui-id-1").css('position','absolute');
+        		$("#ui-id-1").css('text-align','left');
 			$("#split_button_div").css('display', 'inline-block');
-    
-	}, 500);
-    
+    		}, 500);
+	}   
