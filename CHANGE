@@ -1,0 +1,53 @@
+/*   ----------------
+ * | Change History  |
+ *   ----------------
+ *  v1.8.2 FIX: Reminders not working properly, fixed regex complilation to correct this
+ *  v1.8.2 ADD: Open the calendar widget by default on reminders
+ *  v1.8.2 ADD: Added jslog() hijack to skim some time off the loading
+ *  v1.8.2 CHANGE: Moved all images and js to HTTPS
+ * 
+ *  v1.8.1 ADD: Reminders for tickets
+ *  v1.8.1 FIX: unsafeWindow for close function in Firefox
+ *
+ *  v1.8.0 ADD: Refresh icon, will refresh the current main pane
+ *  v1.8.0 CHANGE: Collapsed the split_button.js code into the main GM script
+ *  v1.8.0 CHANGE: Added code to hopefully deal with frame-in-frame problem in ServiceNow 
+ *  
+ *  v1.7.0 ADD: Added ability to interface with changes (CHM)
+ *  v1.7.0 CHANGE: Collapsed lots of code into the autoClose() function, saves a lot of space
+ * 
+ *  v1.6.3 FIX: Removed a links from menu HRs
+ *  v1.6.2 FIX: #AC.xxx.xxx DIVs and iFrames not being correctly hidden due to race condition in ac.setWidth(); 
+ *              Cleaned up in the simMenu() function
+ *
+ *  v1.6.1 CHANGE: Testing auto-updates
+ *
+ *  v1.6   ADD: Moved to GitHub for updates
+ * 
+ *  v1.5   ADD: Script will now prompt and store your ServiceNow username for future use
+ *  v1.5   ADD: You can change your username from the GreaseMonkey / Tampermonkey icon
+ *
+ *  v1.4.2 FIX:  Power regular expressions not specific enough
+ *  v1.4.1 ADD:  Configuration change script for Bruce
+ *  v1.4.1 FORK: Forked into Local Javascript and Remote Javascript versions
+ * 
+ *  v1.4: ADD:  Create control ticket automatically
+ *  v1.4: ADD:  New simMenu functionality - now changes values using ServiceNows Javascript functions, much faster!
+ *  v1.4: ADD:  Chainable waitForCSS and waitForValue functions to wait for either a field's CSS or value to i
+ *              change (like the green bars on AJAX calls)
+ *  
+ *  v1.3: ADD: MAJOR rework, added support for SVRs as well as ICMs
+ *  v1.3: ADD: Added Workload quick adds - will carry the Short Description into the window and add the correct hours
+ *  v1.3: ADD: Added sections to drop down menu
+ *
+ *  v1.2: ADD: Automatically chooses "Close or cancel task" or "Set to closed" depending on the current status
+ *  v1.2: FIX: Root cause "Configuration" regex not specific enough and matching multiple values. Tightened up.
+ *  v1.2: ADD: "Close: Fibre Break - Line is stable" - for calls where we're cleaning up after a fibre break and 
+ *              shutting individual tickets down.
+ * 
+ *  v1.1: FIX: Forced a trigger of "onchange" on the Closure and Root Cause textboxes so that values persist during save or update
+ *  v1.1: ADD: "Close: No Response from Provider" and the three MACD closure processes.
+ * 
+ *  v1.0: Initial release
+ * 
+ */
