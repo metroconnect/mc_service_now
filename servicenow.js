@@ -5,6 +5,9 @@
 // @require    https://raw.github.com/metroconnect/mc_service_now/master/jquery.min.js
 // @require    https://raw.github.com/metroconnect/mc_service_now/master/jquery.simulate.js
 // @require    https://raw.github.com/metroconnect/mc_service_now/master/jquery-ui.js
+// @require    https://raw.github.com/metroconnect/mc_service_now/master/dropdown.js
+// @require    https://raw.github.com/metroconnect/mc_service_now/master/actions.js
+// @require    https://raw.github.com/metroconnect/mc_service_now/master/functions.js
 // @resource   customCSS https://raw.github.com/metroconnect/mc_service_now/master/jquery-ui-1.10.3.custom.css
 // @description ServiceNow Actions
 // @include    https://didataservices.service-now.com/incident.do*
