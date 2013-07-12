@@ -105,7 +105,7 @@
 	// | we can fork for each department
 	//  ---------------------------------------------
     
-		var newButton = getDropDown();
+		var newButton = getDropDown(incidentRequest);
     
     		target.html(newButton + existingInner);
 
