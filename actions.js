@@ -1,11 +1,11 @@
+
+function doClosures() { 
+        
         //  ---------------------------------
-        // | Close fault with No Fault Found | 
+        // | Close faults with various codes | 
         //  ---------------------------------
    
-    
-    
-    
-        $('#no_fault_found').click(function() {
+     $('#no_fault_found').click(function() {
  
         $("span:contains('Closure')").click();
         
@@ -462,8 +462,10 @@
 // |      Do Workloads
 //  --------------------------
 
-else if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/task_time_worked.do/)){ 
-    
+
+function doWorkloads() { 
+
+
     var shortDescription = GM_getValue(thisUserVar+"_short_desc");
     var numHours = GM_getValue(thisUserVar+"_num_hours",1);
     //alert("Got numHours = " + numHours);
@@ -482,7 +484,7 @@ else if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/task_time_wo
 // |      Do Reminders
 //  --------------------------
 
-else if (thisURL.match(/^https?:\/\/didataservices.service-now.com\/u_reminder.do/)){
+function doReminders() {
 
     var reminderDesc = GM_getValue(thisUserVar+"_reminder_desc");
     var reminderName = GM_getValue(thisUserVar+"_reminder_name",1);
