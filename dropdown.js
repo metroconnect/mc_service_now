@@ -31,6 +31,7 @@ function getDropDown(incidentRequest) {
     if (incidentRequest == 'incident' || incidentRequest == 'request' || incidentRequest == 'change') {
 
     newButton +=  ' <li><a id="macd_bandwidth" href="#">Close: MACD - Bandwidth Change</a></li> ' +
+                ' <li><a id="macd_newservice" href="#">Close: MACD - New Service</a></li> ' +
                 ' <li><a id="macd_relocation" href="#">Close: MACD - Circuit Relocation</a></li> ' +
                 ' <li><a id="macd_cancellation" href="#">Close: MACD - Circuit Cancellation</a></li> ' +
                 ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:350px;"></li> ';

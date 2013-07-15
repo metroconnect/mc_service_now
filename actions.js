@@ -75,7 +75,7 @@ function doClosures() {
         var tech_regex = /Cisco/ ;
         var rootcause_code = "Fibre Optic Break";
         var resolution_code = "Damaged Fibre Cable";
-                var rootcause_regex = /Carrier \> Fibre Optic Break/;
+        var rootcause_regex = /Carrier \> Fibre Optic Break/;
         var resolution_regex = /Cabling \> Damaged Fibre Cable/;
 
         var close_notes = "The fibre optic cable has been repaired, and service has been restored.";
@@ -97,7 +97,7 @@ function doClosures() {
         var tech_regex = /Cisco/ ;
         var rootcause_code = "Fibre Optic Break";
         var resolution_code = "Damaged Fibre Cable";
-                var rootcause_regex = /Carrier \> Fibre Optic Break/;
+        var rootcause_regex = /Carrier \> Fibre Optic Break/;
         var resolution_regex = /Cabling \> Damaged Fibre Cable/;
 
         var close_notes = "The fibre optic cable has been repaired, and service has been restored.\n\nThe circuit has been stable for a few days,closing call.";
@@ -119,7 +119,7 @@ function doClosures() {
         var tech_regex = /Cisco/ ;
         var rootcause_code = "Configuration";
         var resolution_code = "Configuration change";
-                var rootcause_regex = /^ConfigurationConfiguration/;
+        var rootcause_regex = /^ConfigurationConfiguration/;
         var resolution_regex = /Dimension Data \> Remote \> Solution \> Configuration change/;
 
         var close_notes = "The EVC configuration has been updated.";
@@ -164,7 +164,7 @@ function doClosures() {
         var tech_regex = /Cisco/ ;
         var rootcause_code = "Onsite power failure";
         var resolution_code = "Power Restored";
-                var rootcause_regex = /MEA root causes \> Power \> Onsite power failure/;
+        var rootcause_regex = /MEA root causes \> Power \> Onsite power failure/;
         var resolution_regex = /Combination of remote and onsite support \> Power Restored/;
 
         var close_notes = "The power to site has been restored.";
@@ -181,11 +181,11 @@ function doClosures() {
  
         $("span:contains('Closure')").click();
         
-                var tech_code = "Cisco";
+        var tech_code = "Cisco";
         var tech_regex = /Cisco/ ;
         var rootcause_code = "Onsite power failure";
         var resolution_code = "Power Restored";
-                var rootcause_regex = /MEA root causes \> Power \> Onsite power failure/;
+        var rootcause_regex = /MEA root causes \> Power \> Onsite power failure/;
         var resolution_regex = /Combination of remote and onsite support \> Power Restored/;
 
         var close_notes = "The outage was caused by an extended power outage, causing the UPS batteries to deplete completely.";
@@ -202,11 +202,11 @@ function doClosures() {
  
         $("span:contains('Closure')").click();
         
-                var tech_code = "Cisco";
+        var tech_code = "Cisco";
         var tech_regex = /Cisco/ ;
         var rootcause_code = "Bandwith Utilization";
         var resolution_code = "Configuration changed/restored";
-                var rootcause_regex = /Threshold \> Bandwith Utilization/;
+        var rootcause_regex = /Threshold \> Bandwith Utilization/;
         var resolution_regex = /Remote support provided \> Configuration changed\/restored/;
 
         var close_notes = "Bandwidth changed as per MACD request.";
@@ -219,16 +219,37 @@ function doClosures() {
             
             
         });
-    
+   
+    $('#macd_newservice').click(function() {
+
+        $("span:contains('Closure')").click();
+
+        var tech_code = "Cisco";
+        var tech_regex = /Cisco/;
+        var rootcause_code = "Configuration";^
+        var resolution_code = "Configuration changed/restored";
+        var rootcause_regex = /^ConfigurationConfiguration/;
+	var resolution_regex = /Remote support provided \> Configuration changed\/restored/;
+
+        var close_notes = "New service configured as per MACD request.";
+        var rootcause_notes =  "MACD Request: New Service configured.";
+
+        var nameRegex = new RegExp(userName,'i');
+
+        autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resolution_regex,rootcause_code,rootcause_regex,rootcause_notes,close_notes,nameRegex);
+
+
+        }); 
+
     $('#macd_relocation').click(function() {
  
         $("span:contains('Closure')").click();
        
-                var tech_code = "Cisco";
+        var tech_code = "Cisco";
         var tech_regex = /Cisco/ ;
         var rootcause_code = "Configuration";
         var resolution_code = "Configuration changed/restored";
-                var rootcause_regex = /^ConfigurationConfiguration/;
+        var rootcause_regex = /^ConfigurationConfiguration/;
         var resolution_regex = /Remote support provided \> Configuration changed\/restored/;
 
         var close_notes = "Circuits moved as per MACD request.";
@@ -244,11 +265,11 @@ function doClosures() {
  
         $("span:contains('Closure')").click();
         
-                var tech_code = "Cisco";
+        var tech_code = "Cisco";
         var tech_regex = /Cisco/ ;
         var rootcause_code = "Configuration";
         var resolution_code = "Configuration changed/restored";
-                var rootcause_regex = /^ConfigurationConfiguration/;
+        var rootcause_regex = /^ConfigurationConfiguration/;
         var resolution_regex = /Remote support provided \> Configuration changed\/restored/;
 
         var close_notes = "Circuits cancelled as per MACD request.";
