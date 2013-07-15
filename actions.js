@@ -226,7 +226,7 @@ function doClosures() {
 
         var tech_code = "Cisco";
         var tech_regex = /Cisco/;
-        var rootcause_code = "Configuration";^
+        var rootcause_code = "Configuration";
         var resolution_code = "Configuration changed/restored";
         var rootcause_regex = /^ConfigurationConfiguration/;
 	var resolution_regex = /Remote support provided \> Configuration changed\/restored/;
