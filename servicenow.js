@@ -22,6 +22,17 @@
 
 
 //  --------------------------------------------
+// | Don't collide with other scripts, check here
+//  --------------------------------------------
+
+	var thisURL  = document.location.href;
+	var notMe;
+
+	if (thisURL.match(/mc_time_sheets/)) { 
+		notMe=1;
+	}
+
+//  --------------------------------------------
 // | Get the stored information for the script
 //  --------------------------------------------
 
@@ -44,7 +55,6 @@
         	unsafeWindow.jslog = function() { }; // Do nothing
 	}
 
-	var thisURL  = document.location.href;
 
 //  ------------------------------------------
 // | Try to detect frame-in-frame issues here
@@ -58,8 +68,12 @@
 	var thisUserVar = userName.replace(" ","_");
 	var doDebug = 0;
 
+	if (notMe) {
 
-	if (iframeHref.match(/^https?:\/\/didataservices.service-now.com\/nav.do/)) { 
+		console.log("mc_service_now is bailing out...");
+
+	}
+	else if (iframeHref.match(/^https?:\/\/didataservices.service-now.com\/nav.do/)) { 
 
 	// We have a home.do in the gsft_main frame - reload the outer frame;
 	
