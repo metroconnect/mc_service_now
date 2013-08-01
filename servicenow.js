@@ -21,9 +21,10 @@
 // ==/UserScript==
 
 
-//  --------------------------------------------
-// | Don't collide with other scripts, check here
-//  --------------------------------------------
+
+	//  --------------------------------------------
+	// | Don't collide with other scripts, check here
+	//  --------------------------------------------
 
 	var thisURL  = document.location.href;
 	var notMe;
@@ -32,18 +33,18 @@
 		notMe=1;
 	}
 
-//  --------------------------------------------
-// | Get the stored information for the script
-//  --------------------------------------------
+	//  --------------------------------------------
+	// | Get the stored information for the script
+	//  --------------------------------------------
 
 	var userName = GM_getValue ("userName", "");
    	userName = fetchOrPrompt (userName,   "Your Name in ServiceNow", "userName");
 
 	var jsLogging = GM_getValue("jsLogging",true);
 
-//  -------------------------------------
-// | Register GreaseMonkey Commands here
-//  -------------------------------------
+	//  -------------------------------------
+	// | Register GreaseMonkey Commands here
+	//  -------------------------------------
 
 	GM_registerMenuCommand ("Change ServiceNow Username", changeUsername);
 	GM_registerMenuCommand ("Toggle ServiceNow Javascript Logging", toggleLogging);
@@ -56,9 +57,9 @@
 	}
 
 
-//  ------------------------------------------
-// | Try to detect frame-in-frame issues here
-//  ------------------------------------------
+	//  ------------------------------------------
+	// | Try to detect frame-in-frame issues here
+	//  ------------------------------------------
 
 	var iframeHref = '';
 	try 		{ iframeHref = parent.frames['gsft_main'].location.href; } 
