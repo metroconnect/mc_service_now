@@ -19,12 +19,14 @@ function getDropDown(incidentRequest) {
                 ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:300px;"></li> ' +
                 ' <li><a id="fibre_break_generic" href="#">Close: Fibre Break - Generic</a></li> ' +
                 ' <li><a id="fibre_break_stable" href="#">Close: Fibre Break - Line is stable</a></li> ' +
+                ' <li><a id="fibre_break_duplicate" href="#">Close: Fibre Break - Duplicate Call</a></li> ' +
                 ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:350px;"></li> ' +
                 ' <li><a id="circuit_config_generic" href="#">Close: Circuit - Generic Configuration</a></li> ' +
                 ' <li><a id="hardware_failure" href="#">Close: Network: Hardware Failure</a></li> ' +
                 ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:350px;"></li> ' +
                 ' <li><a id="power_failure_generic" href="#">Close: Power Failure - General </a></li> ' +
                 ' <li><a id="power_failure_ups" href="#">Close: Power Failure - UPS Exhausted</a></li> ' +
+                ' <li><a id="power_failure_ups" href="#">Close: Power Failure - Duplicate Call</a></li> ' +
                 ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:350px;"></li> ';
     }
     
