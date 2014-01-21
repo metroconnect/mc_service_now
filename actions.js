@@ -1,4 +1,3 @@
-
 function doClosures() { 
         
         //  ---------------------------------
@@ -110,6 +109,28 @@ function doClosures() {
         
         
         });
+        
+    $('#fibre_break_duplicate').click(function() {
+ 
+        $("span:contains('Closure')").click();
+        
+        var tech_code = "Cisco";
+        var tech_regex = /Cisco/ ;
+        var rootcause_code = "Fibre Optic Break";
+        var resolution_code = "Duplicate";
+        var rootcause_regex = /Carrier \> Fibre Optic Break/;
+        var resolution_regex = /Dimension Data \> No action \> Duplicate/;
+
+        var close_notes = "This call is either a duplicate or a notification where an internal control ticket has already been opened - closing.\n\n";
+        var rootcause_notes =  "The fibre optic cable was damaged.";
+        
+        
+        var nameRegex = new RegExp(userName,'i');
+        
+        autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resolution_regex,rootcause_code,rootcause_regex,rootcause_notes,close_notes,nameRegex);  
+        
+        
+        });
     
     $('#circuit_config_generic').click(function() {
  
@@ -195,6 +216,28 @@ function doClosures() {
         var nameRegex = new RegExp(userName,'i');
         
         autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resolution_regex,rootcause_code,rootcause_regex,rootcause_notes,close_notes,nameRegex);       
+        
+        });
+    
+    $('#power_failure_duplicate').click(function() {
+ 
+        $("span:contains('Closure')").click();
+        
+        var tech_code = "Cisco";
+        var tech_regex = /Cisco/ ;
+        var rootcause_code = "Onsite power failure";
+        var resolution_code = "Duplicate";
+        var rootcause_regex = /MEA root causes \> Power \> Onsite power failure/;
+        var resolution_regex = /Dimension Data \> No action \> Duplicate/;
+
+        var close_notes = "This call is either a duplicate or a notification where an internal control ticket has already been opened - closing.\n\n";
+        var rootcause_notes =  "The outage was caused by a general power failure in the area.";
+        
+        
+        var nameRegex = new RegExp(userName,'i');
+        
+        autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resolution_regex,rootcause_code,rootcause_regex,rootcause_notes,close_notes,nameRegex);  
+        
         
         });
     
