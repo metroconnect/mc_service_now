@@ -10,7 +10,7 @@ function doClosures() {
         
         var tech_code = "Cisco";
         var tech_regex = /Cisco/ ;
-        var resolution_code = "No Fault Found";
+        var resolution_code = "No fault found";
         var rootcause_code = "No Fault Found";
         var resolution_regex = /Combination of remote and onsite support \> No fault found/;
         var rootcause_regex = /No fault foundNo fault found/;
@@ -31,7 +31,7 @@ function doClosures() {
         
         var tech_code = "Cisco";
         var tech_regex = /Cisco/ ;
-        var resolution_code = "No Fault Found";
+        var resolution_code = "No fault found";
         var rootcause_code = "No Fault Found";
         var resolution_regex = /Combination of remote and onsite support \> No fault found/;
         var rootcause_regex = /No fault foundNo fault found/;
