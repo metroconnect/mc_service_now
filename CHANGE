@@ -1,6 +1,7 @@
 /*   ----------------
  * | Change History  |
  *   ----------------
+ *  v2.0.3 FIX: Changed didataservices.service-now.com to new domain dimensiondataservices.service-now.com
  *  v1.8.2 FIX: Reminders not working properly, fixed regex complilation to correct this
  *  v1.8.2 ADD: Open the calendar widget by default on reminders
  *  v1.8.2 ADD: Added jslog() hijack to skim some time off the loading
