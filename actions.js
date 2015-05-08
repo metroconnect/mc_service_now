@@ -12,7 +12,7 @@ function doClosures() {
         var tech_regex = /Cisco/ ;
         var resolution_code = "No fault found";
         var rootcause_code = "No fault found";
-        var resolution_regex = /Combination of remote and onsite support \> No fault found/;
+        var resolution_regex = /Combination of remote and onsite support.+No fault found/;
         var rootcause_regex = /No fault foundNo fault found/;
         
         var rootcause_notes =  "No fault was found on the MetroConnect Network";
