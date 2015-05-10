@@ -175,7 +175,7 @@ function simMenu(field,regex) {
     else {
         console.warn("Doh! Couldn't find the setWidth function!");
     }
-    
+    doDebug = 1;
     if (doDebug) { console.log("This is jackObject"); }
     if (doDebug) { console.log(jackObject); }
     jackObject.ac.onFocus();
