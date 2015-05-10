@@ -164,7 +164,8 @@ function simMenu(field,regex) {
   
     var mID = field.attr("id");
     var jackObject = unsafeWindow.document.getElementById(''+mID);
-    
+    console.log("This is jackObject initially");
+    console.log(jackElement);
     if (jQuery.isFunction(jackObject.ac.setWidth)) { 
         // Firefox doesn't keep a [0] DOM object
     }
@@ -180,8 +181,7 @@ function simMenu(field,regex) {
     
     if (doDebug) { console.log("This is jackObject"); }
     if (doDebug) { console.log(jackObject); }
-    if (doDebug) { console.log("This is jackElement"); }
-    if (doDebug) { console.log(jackElement); }
+ 
     doDebug = 0;
     jackObject.ac.onFocus();
     
