@@ -47,7 +47,7 @@ function getDropDown(incidentRequest) {
          ' <li><hr style=" color:#000000; border: 1px #000000; height:1px; width:350px;"></li> ';
     }
 
-    if (incidentRequest == 'incident' || incidentRequest == 'request' || incidentRequest == 'change') {
+    /* if (incidentRequest == 'incident' || incidentRequest == 'request' || incidentRequest == 'change') {
 
      newButton +=  ' <li><a id="reminder_allan" reminder_name="Allan Houston" class="reminder" href="#">Reminder: Add reminder - <b>Allan Houston</b> for this ticket</a></li>'+
                    ' <li><a id="reminder_bruce" reminder_name="Bruce Jelley" class="reminder" href="#">Reminder: Add reminder - <b>Bruce Jelley</b> for this ticket</a></li>'+
@@ -55,7 +55,7 @@ function getDropDown(incidentRequest) {
                    ' <li><a id="reminder_bruce" reminder_name="Deon Naidoo" class="reminder" href="#">Reminder: Add reminder - <b>Deon Naidoo</b> for this ticket</a></li>'+
          ' <li><hr style=" color:#000000; border: 1px #000000; height:1px; width:350px;"></li> ';
     }
-
+    */
 
     if (incidentRequest == 'incident' || incidentRequest == 'request') {
 
