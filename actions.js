@@ -353,23 +353,23 @@ function doClosures() {
            
             
             waitForCss("#sys_display\\.incident\\.company","background-color","#FFFFFF",function() { 
-            $("#status\\.incident\\.assignment_group").css('background-color','#FFFFFF');
-            $("#status\\.incident\\.assignment_group").removeClass('changed');
+            	$("#status\\.incident\\.assignment_group").css('background-color','#FFFFFF');
+            	$("#status\\.incident\\.assignment_group").removeClass('changed');
             
-            // Wait for the company field to go green
-            // Send the Contract now
+            	// Wait for the company field to go green
+            	// Send the Contract now
                 
                 triggerKeyEventsForString("#sys_display\\.incident\\.u_contract","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+contract_code,0,0,simMenu,contract_regex);
                 
-                waitForCss("#status\\.incident\\.u_contract","background-color","#00CC00",function() {
+                waitForCss("#sys_display\\.incident\\.u_contract","background-color","#FFFFFF",function() {
                  
                     
                     // Wait for the contract field to complete
                             
                     triggerKeyEventsForString("#sys_display\\.incident\\.u_caller","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+caller_code,0,0,simMenu,caller_regex);
-                                        triggerKeyEventsForString("#sys_display\\.incident\\.assignment_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
+                    triggerKeyEventsForString("#sys_display\\.incident\\.assignment_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
                     triggerKeyEventsForString("#sys_display\\.incident\\.u_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
-                                        triggerKeyEventsForString("#sys_display\\.incident\\.u_responsible_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
+                    triggerKeyEventsForString("#sys_display\\.incident\\.u_responsible_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
 
                     //triggerKeyEventsForString("#sys_display\\.incident\\.u_assignment_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);         
                     waitForValue("#sys_display\\.incident\\.assignment_group","Metro Connect.KN - Support",function() {
