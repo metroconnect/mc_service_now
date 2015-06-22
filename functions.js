@@ -70,7 +70,7 @@ function waitForCss(selector,attribute,value,call_back,poll_time,max_time) {
     // Used to check for the green bars next to correctly AJAXed fields for example
     
     poll_time = typeof poll_time !== 'undefined' ? poll_time : 100;
-    max_time = typeof max_time !== 'undefined' ? max_time : 10000;
+    max_time = typeof max_time !== 'undefined' ? max_time : 10000
     call_back = typeof call_back !== 'function' ? function() { console.error("Error: Callback isn't a function!"); } : call_back;
     
     var start = new Date().getTime();
@@ -189,13 +189,15 @@ function simMenu(field,regex) {
        
         var oldObject = {};      jQuery.extend(oldObject,jackObject.ac);
         var numJacks = 0;
+    
+	doDebug = 1;
         
         jackObject.ac.setWidth  = function(w) {
             
             if (doDebug) { console.log("Inside setWidth()"); }
             
             var fieldSelector = field.selector.replace(/\\/g,'\\\\');
-                var divID = fieldSelector.replace("#sys_display","#AC");
+            var divID = fieldSelector.replace("#sys_display","#AC");
             var shimID = divID + "_shim";
             
             var numMenuItems = jackObject.ac.currentMenuCount;
@@ -236,7 +238,7 @@ function simMenu(field,regex) {
             //console.log("Hiding " + shimID); console.log($(''+shimID)); $(''+shimID).css('display','none');
             //console.log("Hiding " + divID);  $(""+divID+"").css('display','none');
             
-            if (matchFound == 0) { console.warn("Error matching regular expression" + regex); }
+            if (matchFound == 0) { console.warn("Error matching regular expression in simMenu:" + regex + " for field " + field); }
             
             // Attempt to hide all #AC. divs and iFrames
             
@@ -245,7 +247,7 @@ function simMenu(field,regex) {
             //$('div[id^="AC"]').each(function() { $(this).css('display','none'); });
             //$('iframe[id^="AC"]').each(function() { $(this).css('display','none'); });
             
-                };
+      };
     }
     else { 
      
