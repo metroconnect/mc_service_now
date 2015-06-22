@@ -353,8 +353,9 @@ function doClosures() {
            
             
             waitForCss("#sys_display\\.incident\\.company","background-color","#FFFFFF",function() { 
-            	$("#status\\.incident\\.assignment_group").css('background-color','#FFFFFF');
-            	$("#status\\.incident\\.assignment_group").removeClass('changed');
+            	
+		//$("#status\\.incident\\.assignment_group").css('background-color','#FFFFFF');
+            	//$("#status\\.incident\\.assignment_group").removeClass('changed');
             
             	// Wait for the company field to go green
             	// Send the Contract now
@@ -391,16 +392,17 @@ function doClosures() {
             triggerKeyEventsForString("#sys_display\\.u_request\\.company","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+company_code,0,0,simMenu,company_regex);
            
             
-            waitForCss("#status\\.u_request\\.company","background-color","#00CC00",function() { 
-            $("#status\\.u_request\\.assignment_group").css('background-color','#FFFFFF');
-            $("#status\\.u_request\\.assignment_group").removeClass('changed');
+            waitForCss("#sys_display\\.u_request\\.company","background-color","#FFFFFF",function() { 
+            
+			// $("#status\\.u_request\\.assignment_group").css('background-color','#FFFFFF');
+            	 	// $("#status\\.u_request\\.assignment_group").removeClass('changed');
             
                 // Wait for the company field to go green
                 // Send the Contract now
                 
                 triggerKeyEventsForString("#sys_display\\.u_request\\.u_contract","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+contract_code,0,0,simMenu,contract_regex);
                 
-                waitForCss("#status\\.u_request\\.u_contract","background-color","#00CC00",function() {
+                waitForCss("#sys_display\\.u_request\\.u_contract","background-color","#FFFFFF",function() {
                  
                     
                     // Wait for the contract field to complete
@@ -431,16 +433,17 @@ function doClosures() {
             triggerKeyEventsForString("#sys_display\\.change_request\\.company","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+company_code,0,0,simMenu,company_regex);
            
             
-            waitForCss("#status\\.change_request\\.company","background-color","#00CC00",function() { 
-            $("#status\\.change_request\\.assignment_group").css('background-color','#FFFFFF');
-            $("#status\\.change_request\\.assignment_group").removeClass('changed');
+            waitForCss("#sys_display\\.change_request\\.company","background-color","#FFFFFF",function() { 
+            
+		//$("#status\\.change_request\\.assignment_group").css('background-color','#FFFFFF');
+            	//$("#status\\.change_request\\.assignment_group").removeClass('changed');
             
                 // Wait for the company field to go green
                 // Send the Contract now
                 
                 triggerKeyEventsForString("#sys_display\\.change_request\\.u_contract","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+contract_code,0,0,simMenu,contract_regex);
                 
-                waitForCss("#status\\.change_request\\.u_contract","background-color","#00CC00",function() {
+                waitForCss("#sys_display\\.change_request\\.u_contract","background-color","#FFFFFF",function() {
                  
                     
                     // Wait for the contract field to complete
