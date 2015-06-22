@@ -182,7 +182,7 @@ function simMenu(field,regex) {
     if (doDebug) { console.log("This is jackObject"); }
     if (doDebug) { console.log(jackObject); }
  
-    doDebug = 0;
+    doDebug = 1;
     jackObject.ac.onFocus();
     
     if (jQuery.isFunction(jackObject.ac.setWidth)) {
