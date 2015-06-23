@@ -354,9 +354,6 @@ function doClosures() {
 	    console.log("#incident\\.company:");
 	    console.log($("#incident\\.company"));
 	    
-	    console.log("#incident.company:");
-	    console.log($("#incident.company"));
-		 
             waitForElementValue("#incident\\.company",company_code, function() { 
             // waitForCss("#sys_display\\.incident\\.company","background-color","#FFFFFF",function() { 
             	

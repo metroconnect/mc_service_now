@@ -166,9 +166,11 @@ function waitForElementValue(selector,value,call_back,poll_time,max_time) {
     var found = 0;
     var timed_out = 0;
 
+    
+
     var myInterval = setInterval(function() {
 
-        if ($(''+selector).attr("value").length > 0) {
+        if ($(''+selector).attr("name").length > 0) {
 
             var elapsed = new Date().getTime() - start;
             var currValue = $(''+selector).attr("value");
