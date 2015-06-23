@@ -173,12 +173,12 @@ function waitForElementValue(selector,value,call_back,poll_time,max_time) {
 
     var myInterval = setInterval(function() {
 
-        if ($(''+selector).attr("name").length > 0) {
+        if ($(''+selector).length > 0) {
 
             var elapsed = new Date().getTime() - start;
             var currValue = $(''+selector).attr("value");
 
-            currValue = currValue.match(/rgb/i) ? rgbToHex(currValue,true) : currValue;
+	    console.log("currValue: "+currValue);
 
             if (currValue == value) {
 
