@@ -155,9 +155,9 @@ function waitForValue(selector,value,call_back,poll_time,max_time) {
 
 }
 
-function waitForElementValue(selector,value,call_back,poll_time,max_time) {
+function waitForElementValue(selector,regex,call_back,poll_time,max_time) {
 
-    // This polls for the selector value, and differs from waitForValue which checks for form element values as opposed to DOM element values
+    // This polls for the selector value regex, and differs from waitForValue which checks for form element values as opposed to DOM element values
 
     poll_time = typeof poll_time !== 'undefined' ? poll_time : 100;
     max_time = typeof max_time !== 'undefined' ? max_time : 10000;
@@ -180,9 +180,9 @@ function waitForElementValue(selector,value,call_back,poll_time,max_time) {
 
 	    console.log("currValue: "+currValue);
 
-            if (currValue == value) {
+            if (currValue.match(regex)) {
 
-                console.log("waitForElementValue: Found "  + value + " for " + selector + " in " + elapsed + " milliseconds.");
+                console.log("waitForElementValue: Found "  + currValue + " for " + selector + " in " + elapsed + " milliseconds.");
                 found = 1;
                 clearInterval(myInterval);
                 call_back();                            // Call the call_back function

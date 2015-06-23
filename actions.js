@@ -354,7 +354,7 @@ function doClosures() {
 	    console.log("#incident\\.company:");
 	    console.log($("#incident\\.company"));
 	    
-            waitForElementValue("#incident\\.company",company_code, function() { 
+            waitForElementValue("#incident\\.company",/\w+/, function() { 
             // waitForCss("#sys_display\\.incident\\.company","background-color","#FFFFFF",function() { 
             	
 		//$("#status\\.incident\\.assignment_group").css('background-color','#FFFFFF');
