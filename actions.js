@@ -351,8 +351,8 @@ function doClosures() {
             $("#sys_display\\.incident\\.company").focus();
             triggerKeyEventsForString("#sys_display\\.incident\\.company","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+company_code,0,0,simMenu,company_regex);
            
-            
-            waitForCss("#sys_display\\.incident\\.company","background-color","#FFFFFF",function() { 
+            waitForValue("#incident.company",company_code, function() { 
+            // waitForCss("#sys_display\\.incident\\.company","background-color","#FFFFFF",function() { 
             	
 		//$("#status\\.incident\\.assignment_group").css('background-color','#FFFFFF');
             	//$("#status\\.incident\\.assignment_group").removeClass('changed');
@@ -362,7 +362,8 @@ function doClosures() {
                 
                 triggerKeyEventsForString("#sys_display\\.incident\\.u_contract","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+contract_code,0,0,simMenu,contract_regex);
                 
-                waitForCss("#sys_display\\.incident\\.u_contract","background-color","#FFFFFF",function() {
+            	waitForValue("#incident.u_contract",contract_code, function() { 
+                //waitForCss("#sys_display\\.incident\\.u_contract","background-color","#FFFFFF",function() {
                  
                     
                     // Wait for the contract field to complete
