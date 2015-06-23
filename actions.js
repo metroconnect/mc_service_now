@@ -350,7 +350,13 @@ function doClosures() {
             
             $("#sys_display\\.incident\\.company").focus();
             triggerKeyEventsForString("#sys_display\\.incident\\.company","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+company_code,0,0,simMenu,company_regex);
-           
+          
+	    console.log("#incident\\.company:");
+	    console.log($("#incident\\.company"));
+	    
+	    console.log("#incident.company:");
+	    console.log($("#incident.company"));
+		 
             waitForElementValue("#incident\\.company",company_code, function() { 
             // waitForCss("#sys_display\\.incident\\.company","background-color","#FFFFFF",function() { 
             	
