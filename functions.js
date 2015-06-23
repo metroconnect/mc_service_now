@@ -121,7 +121,10 @@ function waitForValue(selector,value,call_back,poll_time,max_time) {
     var start = new Date().getTime();
     var found = 0;
     var timed_out = 0;
-   
+  
+    console.log("Debug:");
+    console.log($(''+selector));
+ 
     var myInterval = setInterval(function() { 
     
         if ($(''+selector).length > 0) { 
