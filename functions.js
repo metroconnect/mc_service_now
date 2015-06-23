@@ -154,6 +154,50 @@ function waitForValue(selector,value,call_back,poll_time,max_time) {
 
 }
 
+function waitForElementValue(selector,value,call_back,poll_time,max_time) {
+
+    // This polls for the selector value, and differs from waitForValue which checks for form element values as opposed to DOM element values
+
+    poll_time = typeof poll_time !== 'undefined' ? poll_time : 100;
+    max_time = typeof max_time !== 'undefined' ? max_time : 10000;
+    call_back = typeof call_back !== 'function' ? function() { console.error("Error: Callback isn't a function!"); } : call_back;
+
+    var start = new Date().getTime();
+    var found = 0;
+    var timed_out = 0;
+
+    var myInterval = setInterval(function() {
+
+        if ($(''+selector).attr("value").length > 0) {
+
+            var elapsed = new Date().getTime() - start;
+            var currValue = $(''+selector).attr("value");
+
+            currValue = currValue.match(/rgb/i) ? rgbToHex(currValue,true) : currValue;
+
+            if (currValue == value) {
+
+                console.log("waitForElementValue: Found "  + value + " for " + selector + " in " + elapsed + " milliseconds.");
+                found = 1;
+                clearInterval(myInterval);
+                call_back();                            // Call the call_back function
+            }
+
+            if (elapsed > max_time) {
+
+                console.log("waitForElementValue: Timed out waiting for " + value + " for " + selector + " in " + elapsed + " milliseconds.");
+                timed_out = 1;
+                clearInterval(myInterval);
+            }
+            // console.log("warForValue: Debug: " + attribute + " = " + currValue + " for " + selector + " in " + elapsed + " milliseconds.");
+        }
+        else { console.log("Couldn't find the jQuery element in waitForElementValue() :" + selector); }
+
+    },poll_time);
+
+
+}
+
 
 
 function simMenu(field,regex) {
