@@ -122,8 +122,6 @@ function waitForValue(selector,value,call_back,poll_time,max_time) {
     var found = 0;
     var timed_out = 0;
   
-    console.log("Debug:");
-    console.log($(''+selector));
  
     var myInterval = setInterval(function() { 
     
@@ -169,6 +167,8 @@ function waitForElementValue(selector,value,call_back,poll_time,max_time) {
     var found = 0;
     var timed_out = 0;
 
+    console.log("Debug:");
+    console.log($(''+selector));
     
 
     var myInterval = setInterval(function() {
