@@ -351,7 +351,7 @@ function doClosures() {
             $("#sys_display\\.incident\\.company").focus();
             triggerKeyEventsForString("#sys_display\\.incident\\.company","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+company_code,0,0,simMenu,company_regex);
            
-            waitForValue("#incident\\.company",company_code, function() { 
+            waitForElementValue("#incident\\.company",company_code, function() { 
             // waitForCss("#sys_display\\.incident\\.company","background-color","#FFFFFF",function() { 
             	
 		//$("#status\\.incident\\.assignment_group").css('background-color','#FFFFFF');
@@ -362,7 +362,7 @@ function doClosures() {
                 
                 triggerKeyEventsForString("#sys_display\\.incident\\.u_contract","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+contract_code,0,0,simMenu,contract_regex);
                 
-            	waitForValue("#incident\\.u_contract",contract_code, function() { 
+            	waitForElementValue("#incident\\.u_contract",contract_code, function() { 
                 //waitForCss("#sys_display\\.incident\\.u_contract","background-color","#FFFFFF",function() {
                  
                     
