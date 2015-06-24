@@ -328,7 +328,7 @@ function doClosures() {
     $('#mc_control').click(function() {
  
         var company_code = "Metroconnect (Control)";
-        var company_regex = /Metroconnect \(Control\)/ ;
+        var company_regex = /\w{32}/ ;				// Match the new 32 byte hex value
         
         // var company_code = "Metroconnect";
         // var company_regex = /Metroconnect \(Control\)/ ;
@@ -338,8 +338,7 @@ function doClosures() {
         var caller_regex = /DD Engineer Metroconnect \(Control\)/;
         
         var contract_code = "MEA.AF Time and Material contract";
-        //var contract_regex = /MEA.AF Time and Material contract/;
-        var contract_regex = /\w{32}/;
+        var contract_regex = /\w{32}/;				// Match the new 32 byte hex value
         
         var group_code = "Metro Connect.KN - Support";
         var group_regex = /Metro Connect.KN - Support/;
@@ -350,18 +349,13 @@ function doClosures() {
         if (incidentRequest == "incident") { 
             
             $("#sys_display\\.incident\\.company").focus();
-            triggerKeyEventsForString("#sys_display\\.incident\\.company","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+company_code,0,0,simMenu,company_regex);
+            triggerKeyEventsForString("#sys_display\\.incident\\.company",Array(32).join("\b")+company_code,0,0,simMenu,company_regex);
           
 	    console.log("#incident\\.company:");
 	    console.log($("#incident\\.company"));
 	    
             waitForElementValue("#incident\\.company",/\w+/, function() { 
-            // waitForCss("#sys_display\\.incident\\.company","background-color","#FFFFFF",function() { 
             	
-		//$("#status\\.incident\\.assignment_group").css('background-color','#FFFFFF');
-            	//$("#status\\.incident\\.assignment_group").removeClass('changed');
-            
-            	// Wait for the company field to go green
             	// Send the Contract now
                 
                 triggerKeyEventsForString("#sys_display\\.incident\\.u_contract","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+contract_code,0,0,simMenu,contract_regex);
@@ -375,7 +369,6 @@ function doClosures() {
                     triggerKeyEventsForString("#sys_display\\.incident\\.u_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
                     triggerKeyEventsForString("#sys_display\\.incident\\.u_responsible_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
 
-                    //triggerKeyEventsForString("#sys_display\\.incident\\.u_assignment_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);         
                     waitForElementValue("#incident\\.assignment_group",/\w+/,function() {
                        
                         triggerKeyEventsForString("#sys_display\\.incident\\.assigned_to","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+userName,0,0,simMenu,nameRegex);
