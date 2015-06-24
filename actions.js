@@ -365,9 +365,7 @@ function doClosures() {
                 
                 triggerKeyEventsForString("#sys_display\\.incident\\.u_contract","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+contract_code,0,0,simMenu,contract_regex);
                 
-            	waitForElementValue("#incident\\.u_contract",contract_code, function() { 
-                //waitForCss("#sys_display\\.incident\\.u_contract","background-color","#FFFFFF",function() {
-                 
+            	waitForElementValue("#incident\\.u_contract",/\w+/, function() { 
                     
                     // Wait for the contract field to complete
                             
@@ -377,7 +375,7 @@ function doClosures() {
                     triggerKeyEventsForString("#sys_display\\.incident\\.u_responsible_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
 
                     //triggerKeyEventsForString("#sys_display\\.incident\\.u_assignment_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);         
-                    waitForValue("#sys_display\\.incident\\.assignment_group","Metro Connect.KN - Support",function() {
+                    waitForElementValue("#incident\\.assignment_group",/\w+/,function() {
                        
                         triggerKeyEventsForString("#sys_display\\.incident\\.assigned_to","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+userName,0,0,simMenu,nameRegex);
                         $("#incident\\.u_next_step_displayed option:contains('Mark as responded')").attr('selected', 'selected').trigger('onchange');
