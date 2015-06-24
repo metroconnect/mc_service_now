@@ -349,7 +349,7 @@ function doClosures() {
         if (incidentRequest == "incident") { 
             
             $("#sys_display\\.incident\\.company").focus();
-            triggerKeyEventsForString("#sys_display\\.incident\\.company",Array(32).join("\b")+company_code,0,0,simMenu,company_regex);
+            triggerKeyEventsForString("#sys_display\\.incident\\.company",Array(48).join("\b")+company_code,0,0,simMenu,company_regex);
           
 	    console.log("#incident\\.company:");
 	    console.log($("#incident\\.company"));
@@ -358,20 +358,20 @@ function doClosures() {
             	
             	// Send the Contract now
                 
-                triggerKeyEventsForString("#sys_display\\.incident\\.u_contract","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+contract_code,0,0,simMenu,contract_regex);
+                triggerKeyEventsForString("#sys_display\\.incident\\.u_contract",Array(48).join("\b")+contract_code,0,0,simMenu,contract_regex);
                 
             	waitForElementValue("#incident\\.u_contract",/\w+/, function() { 
                     
                     // Wait for the contract field to complete
                             
-                    triggerKeyEventsForString("#sys_display\\.incident\\.u_caller","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+caller_code,0,0,simMenu,caller_regex);
-                    triggerKeyEventsForString("#sys_display\\.incident\\.assignment_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
-                    triggerKeyEventsForString("#sys_display\\.incident\\.u_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
-                    triggerKeyEventsForString("#sys_display\\.incident\\.u_responsible_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
+                    triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(48).join("\b")+caller_code,0,0,simMenu,caller_regex);
+                    triggerKeyEventsForString("#sys_display\\.incident\\.assignment_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
+                    triggerKeyEventsForString("#sys_display\\.incident\\.u_owner_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
+                    triggerKeyEventsForString("#sys_display\\.incident\\.u_responsible_owner_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
 
                     waitForElementValue("#incident\\.assignment_group",/\w+/,function() {
                        
-                        triggerKeyEventsForString("#sys_display\\.incident\\.assigned_to","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+userName,0,0,simMenu,nameRegex);
+                        triggerKeyEventsForString("#sys_display\\.incident\\.assigned_to",Array(48).join("\b")+userName,0,0,simMenu,nameRegex);
                         $("#incident\\.u_next_step_displayed option:contains('Mark as responded')").attr('selected', 'selected').trigger('onchange');
                         $("#incident\\.u_accepted").val('1').trigger('onchange');
                         
