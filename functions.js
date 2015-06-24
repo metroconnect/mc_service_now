@@ -167,8 +167,8 @@ function waitForElementValue(selector,regex,call_back,poll_time,max_time) {
     var found = 0;
     var timed_out = 0;
 
-    console.log("Debug:");
-    console.log($(''+selector));
+    //console.log("Debug:");
+    //console.log($(''+selector));
     
 
     var myInterval = setInterval(function() {
@@ -178,9 +178,9 @@ function waitForElementValue(selector,regex,call_back,poll_time,max_time) {
             var elapsed = new Date().getTime() - start;
             var currValue = $(''+selector).attr("value");
 
-	    console.log("currValue: " +currValue);
-	    console.log("regex: " +regex);
-	    console.log("elapsed: " +elapsed+" max_time: "+max_time);
+	    //console.log("currValue: " +currValue);
+	    //console.log("regex: " +regex);
+	    //console.log("elapsed: " +elapsed+" max_time: "+max_time);
 
             if (currValue.match(regex)) {
 
