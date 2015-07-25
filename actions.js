@@ -327,8 +327,8 @@ function doClosures() {
     
     $('#mc_control').click(function() {
  
-        var company_code = "Metroconnect (Control)";
-        var company_regex = /Metroconnect \(Control\)/ ;
+        var company_code = "Metroconnect - Control (SP)";
+        var company_regex = /Metroconnect - Control \(SP\)/ ;
         
         // var company_code = "Metroconnect";
         // var company_regex = /Metroconnect \(Control\)/ ;
