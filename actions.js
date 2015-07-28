@@ -337,8 +337,8 @@ function doClosures() {
         var caller_code = "DD Engineer Metroconnect (Control)";
         var caller_regex = /DD Engineer Metroconnect \(Control\)/;
         
-        var contract_code = "MEA.AF Time and Material contract";
-        var contract_regex = /MEA.AF Time and Material contract/;
+        var contract_code = "ES Service Management MetroConnect";
+        var contract_regex = /ES Service Management MetroConnect/;
         
         var group_code = "Metro Connect.KN - Support";
         var group_regex = /Metro Connect.KN - Support/;
