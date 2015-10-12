@@ -10,11 +10,11 @@
 // @require    https://raw.github.com/metroconnect/mc_service_now/Beta/functions.js
 // @resource   customCSS https://raw.github.com/metroconnect/mc_service_now/Beta/jquery-ui-1.10.3.custom.css
 // @description MetroConnect ServiceNow Actions
-// @include    https://dimensiondata.service-now.com/incident.do*
-// @include    https://dimensiondata.service-now.com/u_request.do*
-// @include    https://dimensiondata.service-now.com/change_request.do*
-// @include    https://dimensiondata.service-now.com/task_time_worked.do*
-// @include    https://dimensiondata.service-now.com/u_reminder.do*
+// @include    https://dimensiondataservices.service-now.com/incident.do*
+// @include    https://dimensiondataservices.service-now.com/u_request.do*
+// @include    https://dimensiondataservices.service-now.com/change_request.do*
+// @include    https://dimensiondataservices.service-now.com/task_time_worked.do*
+// @include    https://dimensiondataservices.service-now.com/u_reminder.do*
 // @updateURL  https://raw.github.com/metroconnect/mc_service_now/Beta/metadata.js
 // @downloadURL https://raw.github.com/metroconnect/mc_service_now/Beta/servicenow.js
 // @copyright  2013, Allan Houston
@@ -74,7 +74,7 @@
 		console.log("mc_service_now is bailing out...");
 
 	}
-	else if (iframeHref.match(/^https?:\/\/dimensiondata.service-now.com\/nav.do/)) { 
+	else if (iframeHref.match(/^https?:\/\/dimensiondataservices.service-now.com\/nav.do/)) { 
 
 	// We have a home.do in the gsft_main frame - reload the outer frame;
 	
@@ -83,7 +83,7 @@
 
 	}
 
-	else if (thisURL.match(/^https?:\/\/dimensiondata.service-now.com\/(incident|u_request|change_request).do/)){ 
+	else if (thisURL.match(/^https?:\/\/dimensiondataservices.service-now.com\/(incident|u_request|change_request).do/)){ 
 
     	//Only run on the location.do or urequest_do iFrame
 
@@ -93,13 +93,13 @@
     
    		var incidentRequest = "";
     
-    		if (thisURL.match(/^https?:\/\/dimensiondata.service-now.com\/incident.do/)) { 
+    		if (thisURL.match(/^https?:\/\/dimensiondataservices.service-now.com\/incident.do/)) { 
         		incidentRequest = "incident";
     		}
-    		else if (thisURL.match(/^https?:\/\/dimensiondata.service-now.com\/u_request.do/)) {
+    		else if (thisURL.match(/^https?:\/\/dimensiondataservices.service-now.com\/u_request.do/)) {
      			incidentRequest = "request";
     		}
-    		else if (thisURL.match(/^https?:\/\/dimensiondata.service-now.com\/change_request.do/)) {
+    		else if (thisURL.match(/^https?:\/\/dimensiondataservices.service-now.com\/change_request.do/)) {
         		incidentRequest = "change";
     		}
     
@@ -134,7 +134,7 @@
     		
     		doClosures();
 	}   
-	else if (thisURL.match(/^https?:\/\/dimensiondata.service-now.com\/task_time_worked.do/)){ 
+	else if (thisURL.match(/^https?:\/\/dimensiondataservices.service-now.com\/task_time_worked.do/)){ 
 	
 		//  --------------------------
 		// |      Do Workloads
@@ -144,7 +144,7 @@
 	
 	}
 	
-	else if (thisURL.match(/^https?:\/\/dimensiondata.service-now.com\/u_reminder.do/)){
+	else if (thisURL.match(/^https?:\/\/dimensiondataservices.service-now.com\/u_reminder.do/)){
 		
 		//  --------------------------
 		// |      Do Reminders
