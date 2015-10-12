@@ -327,7 +327,7 @@ function doClosures() {
     
     $('#mc_control').click(function() {
  
-        var company_code = "Metroconnect (Control)";
+        var company_code = "Metroconnect - Control (SP)";
         var company_regex = /\w{32}/ ;				// Match the new 32 byte hex value
         
         // var company_code = "Metroconnect";
