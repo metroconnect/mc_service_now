@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       MetroConnect ServiceNow Autocomplete (Beta Branch)
 // @namespace  https://github.com/metroconnect/mc_service_now
-// @version    2.0.5
+// @version    2.0.6
 // @require    https://raw.github.com/metroconnect/mc_service_now/Beta/jquery.min.js
 // @require    https://raw.github.com/metroconnect/mc_service_now/Beta/jquery.simulate.js
 // @require    https://raw.github.com/metroconnect/mc_service_now/Beta/jquery-ui.js
@@ -17,7 +17,12 @@
 // @include    https://dimensiondataservices.service-now.com/u_reminder.do*
 // @updateURL  https://raw.github.com/metroconnect/mc_service_now/Beta/metadata.js
 // @downloadURL https://raw.github.com/metroconnect/mc_service_now/Beta/servicenow.js
-// @copyright  2013, Allan Houston
+// @grant       GM_getValue
+// @grant       GM_setValue
+// @grant       GM_registerMenuCommand
+// @grant       GM_getResourceText
+// @grant       GM_addStyle
+// @copyright  2016, Allan Houston
 // ==/UserScript==
 
 
