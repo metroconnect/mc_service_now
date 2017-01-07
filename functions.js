@@ -49,7 +49,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                 }
                 if (currentClassification != setClassification) {
                         console.log("Setting Classification to",setClassification);
-                        triggerKeyEventsForString("#sys_display\\.incident\\.u_classification",Array(1).join("\b")+setClassification,0,0,simMenu,regexClassification);
+                        triggerKeyEventsForString("#sys_display\\.incident\\.u_classification",Array(32).join("\b")+setClassification,0,0,simMenu,regexClassification);
                 }
           }
         }
