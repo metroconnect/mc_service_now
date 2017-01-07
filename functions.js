@@ -59,6 +59,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                 if (currentCompany == 'Ethekwini Municipality') {
                 
                         var currentCI = $("#sys_display\\.incident\\.u_contract_ci").val();         // Refresh in case of async changes
+                        console.log("CI is currently:",currentCI);
                         if (currentCI == '')  {
                                 console.log("Setting CI to",setCI);
                                 $("#sys_display\\.original\\.incident\\.u_contract_ci").val(setCI);
