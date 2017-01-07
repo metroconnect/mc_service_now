@@ -36,13 +36,16 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         
           if (currentCompany == 'Ethekwini Municipality') {
                 console.log("Fixing usual MSEN stuff..");
-                if (currentCaller != 'DD Engineer') {          
+                if (currentCaller != 'DD Engineer') {
+                        console.log("Setting caller to",setCaller);
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(1).join("\b")+setCaller,0,0,simMenu,regexCaller);
                 }
                 if (currentCI == '') {
+                        console.log("Setting CI to",setCI);
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(1).join("\b")+setCI,0,0,simMenu,regexCI);
                 }
                 if (currentClassification == '') {
+                        console.log("Setting Classification to",setClassification);
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_classification",Array(1).join("\b")+setClassification,0,0,simMenu,regexClassification);
                 }
           }
