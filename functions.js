@@ -23,12 +23,16 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var setCaller = "DD Engineer";
         var setCI = "VIRTUAL_CI";
         var setContract = "ES Service Management MetroConnect";
-        var setClassification = currentContract == 'ES Service Management MetroConnect' ? 'Fault' : 'Problem';
+        var setClassification = currentContract == 'ES Service Management MetroConnect' ? 'Fault'
+                             : currentContract == 'Insite Services Level 3'  ? 'Problem' 
+                             : currentContract == 'MSEN Incident Management'  ? 'Hardware' : '';
         
         var regexCaller = /DD Engineer/;
         var regexCI = /VIRTUAL_CI/;
         var regexContract = /ES Service Management MetroConnect/;
-        var regexClassification = currentContract == 'ES Service Management MetroConnect' ? /IT Outsourcing \> Kwa-Zulu Natal \> Monitoring \> Network \> Fault/ : /Remote Management Solutions \> Operate \> Problem/;
+        var regexClassification = currentContract == 'ES Service Management MetroConnect' ? /IT Outsourcing \> Kwa-Zulu Natal \> Monitoring \> Network \> Fault/
+                                : currentContract == 'Insite Services Level 3'  ? /Remote Management Solutions \> Operate \> Problem/
+                                : currentContract == 'MSEN Incident Management' ? /MSEN \> Incident Management \> Hardware/ : '';
         
         console.log("Current Caller:", currentCaller);
         console.log("Current CI:", currentCI);
