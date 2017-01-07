@@ -55,11 +55,11 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                         if (currentModel == '') {
                                 console.log("Setting CI Model to",setModel);
                                 triggerKeyEventsForString("#sys_display\\.incident\\.u_product",Array(1).join("\b")+setModel,0,0,simMenu,regexModel);
-                                /*waitForElementValue("#sys_display\\.incident\\.u_product",/\w+/, function() {
+                                waitForElementValue("#sys_display\\.incident\\.u_product",/\w+/, function() {
                                       console.log("Setting CI to",setCI);
                                       $("#sys_display\\.original\\.incident\\.u_contract_ci").val(setCI);
                                       triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(1).join("\b")+setCI,0,0,simMenu,regexCI);  
-                                });*/
+                                });
                         }
                         else {
                                 console.log("Setting CI to",setCI);
