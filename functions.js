@@ -22,7 +22,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var currentClassification = $("#sys_display\\.incident\\.u_classification").val();
         
         var setCaller = "DD Engineer";
-        var setCI =  regexModel == 'DDNC-VIRTUAL_CI' ? '20794095' : 'VIRTUAL_CI';
+        var setCI =  currentModel == 'DDNC-VIRTUAL_CI' ? '20794095' : currentModel == '' ? '20794095' : 'VIRTUAL_CI';
         var setModel = "DDNC-VIRTUAL_CI";
         var setContract = "ES Service Management MetroConnect";
         var setClassification = currentContract == 'ES Service Management MetroConnect' ? 'Fault'
@@ -30,7 +30,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                              : currentContract == 'MSEN Incident Management'  ? 'Hardware' : '';
         
         var regexCaller = /DD Engineer/;
-        var regexCI = regexModel == 'DDNC-VIRTUAL_CI' ? /20794095/ : /VIRTUAL_CI/;
+        var regexCI = currentModel == 'DDNC-VIRTUAL_CI' ? /20794095/ : currentModel == '' ? /20794095/ :  /VIRTUAL_CI/;
         var regexModel = /DDNC-VIRTUAL_CI/;
         var regexContract = /ES Service Management MetroConnect/;
         var regexClassification = currentContract == 'ES Service Management MetroConnect' ? /IT Outsourcing \> Kwa-Zulu Natal \> Monitoring \> Network \> Fault/
