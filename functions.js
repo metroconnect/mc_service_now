@@ -42,50 +42,81 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         console.log("Current Contract:", currentContract);
         console.log("Current Classification:", currentClassification);
 
-        var fixMSEN = function() { 
+        var fixMSENCaller = function() { 
         
-          if (currentCompany == 'Ethekwini Municipality') {
-                console.log("Fixing usual MSEN stuff..");
-                if (currentCaller != 'DD Engineer') {
-                        console.log("Setting caller to",setCaller);
-                        triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(1).join("\b")+setCaller,0,0,simMenu,regexCaller);
+                if (currentCompany == 'Ethekwini Municipality') {
+                      var currentCaller = $("#sys_display\\.incident\\.u_caller").val();
+                      console.log("Fixing usual MSEN stuff..");
+                      if (currentCaller != 'DD Engineer') {
+                              console.log("Setting caller to",setCaller);
+                              triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(1).join("\b")+setCaller,0,0,simMenu,regexCaller);
+                      }
                 }
-                if (currentCI == '') {
-                        
-                        if (currentModel == '') {
-                                console.log("Setting CI Model to",setModel);
-                                triggerKeyEventsForString("#sys_display\\.incident\\.u_product",Array(1).join("\b")+setModel,0,0,simMenu,regexModel);
-                                waitForElementValue("#sys_display\\.incident\\.u_product",regexModel, function() {
-                                      console.log("Setting CI to",setCI);
-                                      $("#sys_display\\.original\\.incident\\.u_contract_ci").val(setCI);
-                                      triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(1).join("\b")+setCI,0,0,simMenu,regexCI);  
-                                });
-                        }
-                        else {
+        }
+        
+        var fixMSENCI = function() { 
+        
+                currentCI = $("#sys_display\\.incident\\.u_contract_ci").val();         // Refresh in case of async changes
+                if (currentCompany == 'Ethekwini Municipality') {
+                
+                        if (currentCI == '')  {
                                 console.log("Setting CI to",setCI);
                                 $("#sys_display\\.original\\.incident\\.u_contract_ci").val(setCI);
                                 triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(1).join("\b")+setCI,0,0,simMenu,regexCI);
                         }
+                
                 }
-                if (currentClassification != setClassification) {
-                        console.log("Setting Classification to",setClassification," regex is",regexClassification);
-                        triggerKeyEventsForString("#sys_display\\.incident\\.u_classification",Array(32).join("\b")+setClassification,0,0,simMenu,regexClassification);
-                }
-          }
-        }
-        // Better wait for contract to change first if needed as it causes fields around it to change too...
-        if (currentContract == '') {
-                console.log("Fixing empty contract..");
-                triggerKeyEventsForString("#sys_display\\.incident\\.u_contract",Array(1).join("\b")+setContract,0,0,simMenu,regexContract);
-                waitForElementValue("#sys_display\\.incident\\.u_contract",/\w+/, function() {
-                        fixMSEN();
-                });
-        }
-        else {
-                fixMSEN();
         }
         
-
+        var fixMSENModel = function() { 
+        
+                if (currentCompany == 'Ethekwini Municipality') {
+                        var currentModel = $("#sys_display\\.incident\\.u_product").val();
+                        if (currentModel == '') {
+                                console.log("Setting CI Model to",setModel);
+                                triggerKeyEventsForString("#sys_display\\.incident\\.u_product",Array(1).join("\b")+setModel,0,0,simMenu,regexModel);
+                                waitForElementValue("#sys_display\\.incident\\.u_product",regexModel, function() { fixMSENCI();});
+                        }
+                }
+        }
+        
+        var fixMSENClassification = function() {
+                
+                if (currentCompany == 'Ethekwini Municipality') {
+                        var currentClassification = $("#sys_display\\.incident\\.u_classification").val();
+                        if (currentClassification != setClassification) {
+                                console.log("Setting Classification to",setClassification," regex is",regexClassification);
+                                triggerKeyEventsForString("#sys_display\\.incident\\.u_classification",Array(32).join("\b")+setClassification,0,0,simMenu,regexClassification);
+                                waitForElementValue("#sys_display\\.incident\\.u_contract",/\w+/, function() {
+                                        fixMSENModel();
+                                        fixMSENCI();
+                                });        
+                        }
+                }
+        }
+        
+        var fixMSENContract = function() {
+                if (currentCompany == 'Ethekwini Municipality') {
+                        if (currentContract == '') {
+                                console.log("Fixing empty contract..");
+                                triggerKeyEventsForString("#sys_display\\.incident\\.u_contract",Array(1).join("\b")+setContract,0,0,simMenu,regexContract);
+                                waitForElementValue("#sys_display\\.incident\\.u_contract",/\w+/, function() {
+                                        fixMSENCaller();
+                                        fixMSENModel();
+                                        fixMSENCI();
+                                        fixMSENClassification();
+                                });
+                        }
+                        else {
+                                        fixMSENCaller();
+                                        fixMSENModel();
+                                        fixMSENCI();
+                                        fixMSENClassification();  
+                        }
+                }
+        }
+        
+        fixMSENContract();
         
         if (type == "incident") { 
             
