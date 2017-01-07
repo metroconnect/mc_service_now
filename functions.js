@@ -45,6 +45,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                 }
                 if (currentCI == '') {
                         console.log("Setting CI to",setCI);
+                        $("#sys_display\\.original\\.incident\\.u_contract_ci").val(setCI);
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(1).join("\b")+setCI,0,0,simMenu,regexCI);
                 }
                 if (currentClassification != setClassification) {
