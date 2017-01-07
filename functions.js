@@ -35,7 +35,8 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var fixMSEN = function() { 
         
           if (currentCompany == 'EThekwini Municipality') {
-                if (currentCompany == 'EThekwini Municipality' && currentCaller != 'DD Engineer') {          
+                console.log("Fixing usual MSEN stuff..");
+                if (currentCaller != 'DD Engineer') {          
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(1).join("\b")+setCaller,0,0,simMenu,regexCaller);
                 }
                 if (currentCI == '') {
@@ -48,12 +49,15 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         }
         // Better wait for contract to change first if needed as it causes fields around it to change too...
         if (currentContract == '') {
+                console.log("Fixing empty contract..");
                 triggerKeyEventsForString("#sys_display\\.incident\\.u_contract",Array(1).join("\b")+setContract,0,0,simMenu,regexContract);
                 waitForElementValue("#sys_display\\.incident\\.u_contract",/\w+/, function() {
                         fixMSEN();
                 });
         }
-        else { fixMSEN(); }
+        else {
+                fixMSEN();
+        }
         
 
         
