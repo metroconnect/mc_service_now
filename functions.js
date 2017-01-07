@@ -30,7 +30,10 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var regexContract = /ES Service Management MetroConnect/;
         var regexClassification = currentContract == 'ES Service Management MetroConnect' ? /IT Outsourcing \> Kwa-Zulu Natal \> Monitoring \> Network \> Fault/ : /Remote Management Solutions \> Operate \> Problem/;
         
-        console.log("Current values a:", currentCaller, currentCI, currentContract);
+        console.log("Current Caller:", currentCaller);
+        console.log("Current CI:", currentCI);
+        console.log("Current Contract:", currentContract);
+        console.log("Current Classification:", currentClassification);
 
         var fixMSEN = function() { 
         
@@ -44,7 +47,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                         console.log("Setting CI to",setCI);
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(1).join("\b")+setCI,0,0,simMenu,regexCI);
                 }
-                if (currentClassification == '') {
+                if (currentClassification != setClassification) {
                         console.log("Setting Classification to",setClassification);
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_classification",Array(1).join("\b")+setClassification,0,0,simMenu,regexClassification);
                 }
