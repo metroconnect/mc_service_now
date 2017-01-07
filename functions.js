@@ -14,21 +14,52 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         
         // Fix up some of the things that MSEN usually leave out...
         
-        var currentCaller = $("input#sys_display\\.incident\\.u_caller").val();
-        var currentCI = $("#incident\\.u_contract_ci").val();
-        var currentContract =$("#incident\\.u_contract_ci").val();
+        var currentCompany = $("#incident\\.company_label").val();
+        var currentCaller = $("#sys_display\\.incident\\.u_caller").val();
+        var currentCI = $("#sys_display\\.incident\\.u_contract_ci").val();
+        var currentContract =$("#sys_display\\.incident\\.u_contract").val();
+        var currentClassification = $("#sys_display\\.incident\\.u_classification").val();
         
+        var setCaller = "DD Engineer";
         var setCI = "VIRTUAL_CI";
-        var regexCI = /VIRT-40019844-10/;
-        
         var setContract = "ES Service Management MetroConnect";
-        var regexContract = /ES Service Management MetroConnect/;
+        var setClassification = currentContract == 'ES Service Management MetroConnect' ? 'Fault' : 'Problem';
         
-        console.log("Current values:", currentCaller, currentCI, currentContract);
+        var regexCaller = /DD Engineer/;
+        var regexCI = /VIRTUAL_CI/;
+        var regexContract = /ES Service Management MetroConnect/;
+        var regexClassification = currentContract == 'ES Service Management MetroConnect' ? /IT Outsourcing \> Kwa-Zulu Natal \> Monitoring \> Network \> Fault/ : /Remote Management Solutions \> Operate \> Problem/;
+        
+        console.log("Current values a:", currentCaller, currentCI, currentContract);
+
+        var fixMSEN = function() { 
+        
+          if (currentCompany == 'EThekwini Municipality') {
+                if (currentCompany == 'EThekwini Municipality' && currentCaller != 'DD Engineer') {          
+                        triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(1).join("\b")+setCaller,0,0,simMenu,regexCaller);
+                }
+                if (currentCI == '') {
+                        triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(1).join("\b")+setCI,0,0,simMenu,regexCI);
+                }
+                if (currentClassification == '') {
+                        triggerKeyEventsForString("#sys_display\\.incident\\.u_classification",Array(1).join("\b")+setClassification,0,0,simMenu,regexClassification);
+                }
+          }
+        }
+        // Better wait for contract to change first if needed as it causes fields around it to change too...
+        if (currentContract == '') {
+                triggerKeyEventsForString("#sys_display\\.incident\\.u_contract",Array(1).join("\b")+setContract,0,0,simMenu,regexContract);
+                waitForElementValue("#sys_display\\.incident\\.u_contract",/\w+/, function() {
+                        fixMSEN();
+                });
+        }
+        else { fixMSEN(); }
+        
+
         
         if (type == "incident") { 
             
-                triggerKeyEventsForString("#sys_display\\.incident\\.u_technology","\b\b\b\b\b\b"+tech_code,0,0,simMenu,tech_regex);
+                triggerKeyEventsForString("#sys_display\\.incident\\.u_technology","\b\byy\b\b\b\b"+tech_code,0,0,simMenu,tech_regex);
                 triggerKeyEventsForString("#sys_display\\.incident\\.u_task_resolution_code","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+resolution_code,0,0,simMenu,resolution_regex);
                 triggerKeyEventsForString("#sys_display\\.incident\\.u_task_rootcause","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+rootcause_code,0,0,simMenu,rootcause_regex);
                 $("#incident\\.u_root_cause_comments").val(rootcause_notes).trigger("onchange");
