@@ -17,11 +17,13 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var currentCompany = $("#incident\\.company_label").val();
         var currentCaller = $("#sys_display\\.incident\\.u_caller").val();
         var currentCI = $("#sys_display\\.incident\\.u_contract_ci").val();
+        var currentModel = $("#sys_display\\.incident\\.u_product").val();
         var currentContract =$("#sys_display\\.incident\\.u_contract").val();
         var currentClassification = $("#sys_display\\.incident\\.u_classification").val();
         
         var setCaller = "DD Engineer";
         var setCI = "VIRTUAL_CI";
+        var setModel = "DDNC-VIRTUAL_CI";
         var setContract = "ES Service Management MetroConnect";
         var setClassification = currentContract == 'ES Service Management MetroConnect' ? 'Fault'
                              : currentContract == 'Insite Services Level 3'  ? 'Problem' 
@@ -29,6 +31,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         
         var regexCaller = /DD Engineer/;
         var regexCI = /VIRTUAL_CI/;
+        var regexModel = /DDNC-VIRTUAL_CI/;
         var regexContract = /ES Service Management MetroConnect/;
         var regexClassification = currentContract == 'ES Service Management MetroConnect' ? /IT Outsourcing \> Kwa-Zulu Natal \> Monitoring \> Network \> Fault/
                                 : currentContract == 'Insite Services Level 3'  ? /Remote Management Solutions \> Operate \> Problem/
@@ -48,6 +51,16 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(1).join("\b")+setCaller,0,0,simMenu,regexCaller);
                 }
                 if (currentCI == '') {
+                        
+                        if (currentModel == '') {
+                                console.log("Setting CI Model to",setModel);
+                                triggerKeyEventsForString("#sys_display\\.incident\\.u_product",Array(1).join("\b")+setModel,0,0,simMenu,regexModel);
+                                waitForElementValue("#sys_display\\.incident\\.u_product",/\w+/, function() {
+                                      console.log("Setting CI to",setCI);
+                                      $("#sys_display\\.original\\.incident\\.u_contract_ci").val(setCI);
+                                      triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(1).join("\b")+setCI,0,0,simMenu,regexCI);  
+                                });
+                        }
                         console.log("Setting CI to",setCI);
                         $("#sys_display\\.original\\.incident\\.u_contract_ci").val(setCI);
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(1).join("\b")+setCI,0,0,simMenu,regexCI);
