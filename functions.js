@@ -48,7 +48,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(1).join("\b")+setCI,0,0,simMenu,regexCI);
                 }
                 if (currentClassification != setClassification) {
-                        console.log("Setting Classification to",setClassification);
+                        console.log("Setting Classification to",setClassification," regex is",regexClassification);
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_classification",Array(32).join("\b")+setClassification,0,0,simMenu,regexClassification);
                 }
           }
