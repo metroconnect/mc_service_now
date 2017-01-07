@@ -14,9 +14,9 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         
         // Fix up some of the things that MSEN usually leave out...
         
-        var currentCaller = $("#sys_display\\.incident\\.u_caller").val();
-        var currentCI = $("#sys_display\\.incident\\.u_contract_ci").val();
-        var currentContract =$("#sys_display\\.incident\\.u_contract_ci").val();
+        var currentCaller = $("#incident\\.u_caller").val();
+        var currentCI = $("#incident\\.u_contract_ci").val();
+        var currentContract =$("#incident\\.u_contract_ci").val();
         
         var setCI = "VIRTUAL_CI";
         var regexCI = /VIRT-40019844-10/;
