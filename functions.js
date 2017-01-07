@@ -29,7 +29,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                              : currentContract == 'Insite Services Level 3'  ? 'Problem' 
                              : currentContract == 'MSEN Incident Management'  ? 'Hardware' : '';
         
-        var regexCaller = /DD Engineer/;
+        var regexCaller = /^DD Engineer\W+Ethekwini Municipality$/;
         var regexCI = currentModel == 'DDNC-VIRTUAL_CI' ? /20794095/ : currentModel == '' ? /20794095/ :  /VIRTUAL_CI/;
         var regexModel = /DDNC-VIRTUAL_CI/;
         var regexContract = /ES Service Management MetroConnect/;
