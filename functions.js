@@ -34,7 +34,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
 
         var fixMSEN = function() { 
         
-          if (currentCompany == 'EThekwini Municipality') {
+          if (currentCompany == 'Ethekwini Municipality') {
                 console.log("Fixing usual MSEN stuff..");
                 if (currentCaller != 'DD Engineer') {          
                         triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(1).join("\b")+setCaller,0,0,simMenu,regexCaller);
