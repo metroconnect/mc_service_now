@@ -56,9 +56,9 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         
         var fixMSENCI = function() { 
         
-                currentCI = $("#sys_display\\.incident\\.u_contract_ci").val();         // Refresh in case of async changes
                 if (currentCompany == 'Ethekwini Municipality') {
                 
+                        var currentCI = $("#sys_display\\.incident\\.u_contract_ci").val();         // Refresh in case of async changes
                         if (currentCI == '')  {
                                 console.log("Setting CI to",setCI);
                                 $("#sys_display\\.original\\.incident\\.u_contract_ci").val(setCI);
@@ -101,10 +101,10 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                                 console.log("Fixing empty contract..");
                                 triggerKeyEventsForString("#sys_display\\.incident\\.u_contract",Array(1).join("\b")+setContract,0,0,simMenu,regexContract);
                                 waitForElementValue("#sys_display\\.incident\\.u_contract",/\w+/, function() {
+                                        fixMSENClassification();
                                         fixMSENCaller();
                                         fixMSENModel();
                                         fixMSENCI();
-                                        fixMSENClassification();
                                 });
                         }
                         else {
