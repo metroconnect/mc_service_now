@@ -75,7 +75,10 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                         if (currentModel == '') {
                                 console.log("Setting CI Model to",setModel);
                                 triggerKeyEventsForString("#sys_display\\.incident\\.u_product",Array(1).join("\b")+setModel,0,0,simMenu,regexModel);
-                                waitForElementValue("#sys_display\\.incident\\.u_product",regexModel, function() { fixMSENCI();});
+                                waitForElementValue("#sys_display\\.incident\\.u_product",regexModel, function() {
+                                        console.log("Re-Setting the CI...");
+                                        fixMSENCI();
+                                });
                         }
                 }
         }
