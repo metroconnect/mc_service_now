@@ -20,6 +20,10 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var currentModel = $("#sys_display\\.incident\\.u_product").val();
         var currentContract =$("#sys_display\\.incident\\.u_contract").val();
         var currentClassification = $("#sys_display\\.incident\\.u_classification").val();
+        var currentShortDesc = $("#incident\\.short_description").val();
+        
+        var hostMatchArray = currentShortDesc.match(/mc\-\w+\-\w+\d+/i);
+        var hostMatch = (!typeof hostMatchArray === 'undefined') && hostMatchArray.length ? hostMatchArray[0] : null;
         
         var setCaller = "DD Engineer";
         var setCI =  currentModel == 'DDNC-VIRTUAL_CI' ? '20794095' : currentModel == '' ? '20794095' : 'VIRTUAL_CI';
@@ -30,7 +34,10 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                              : currentContract == 'MSEN Incident Management'  ? 'Hardware' : '';
         
         var regexCaller = /^DD Engineer\W+Ethekwini Municipality$/;
-        var regexCI = currentModel == 'DDNC-VIRTUAL_CI' ? /20794095/ : currentModel == '' ? /20794095/ :  /VIRTUAL_CI/;
+        var regexCI =     currentModel == 'DDNC-VIRTUAL_CI' ? /20794095/
+                        : currentModel == '' ? /20794095/
+                        : currentModel == 'ME-3400-24FS-A' || 'CISCO7609-S' || 'CISCO7609-S=' ? $hostMatch.toUpperCase()
+                        : /VIRTUAL_CI/;
         var regexModel = /DDNC-VIRTUAL_CI/;
         var regexContract = /ES Service Management MetroConnect/;
         var regexClassification = currentContract == 'ES Service Management MetroConnect' ? /IT Outsourcing \> Kwa-Zulu Natal \> Monitoring \> Network \> Fault/
