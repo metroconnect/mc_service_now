@@ -36,7 +36,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var regexCaller = /^DD Engineer\W+Ethekwini Municipality$/;
         var regexCI =     currentModel == 'DDNC-VIRTUAL_CI' ? /20794095/
                         : currentModel == '' ? /20794095/
-                        : currentModel == 'ME-3400-24FS-A' || 'CISCO7609-S' || 'CISCO7609-S=' ? $hostMatch.toUpperCase()
+                        : currentModel == 'ME-3400-24FS-A' || 'CISCO7609-S' || 'CISCO7609-S=' ? hostMatch.toUpperCase()
                         : /VIRTUAL_CI/;
         var regexModel = /DDNC-VIRTUAL_CI/;
         var regexContract = /ES Service Management MetroConnect/;
