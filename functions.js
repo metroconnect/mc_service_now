@@ -23,9 +23,9 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var currentShortDesc = $("#incident\\.short_description").val();
         
         var hostMatchArray = currentShortDesc.match(/mc\-\w+\-\w+\d+/i);
-        var hostMatch = (!typeof hostMatchArray === 'undefined') && hostMatchArray.length ? hostMatchArray[0] : null;
+        var hostMatch = typeof hostMatchArray === 'Array' && hostMatchArray.length ? hostMatchArray[0] : null;
         
-        console.log("Short Desc:",currentShortDesc,"Host Match Array:",hostMatchArray,"Host Match:",hostMatch);
+        console.log("Short Desc:",currentShortDesc,"Host Match Array:",hostMatchArray,"(",typeof hostMatchArray,")","Host Match:",hostMatch);
         
         var setCaller = "DD Engineer";
         var setCI =  currentModel == 'DDNC-VIRTUAL_CI' ? '20794095' : currentModel == '' ? '20794095' : 'VIRTUAL_CI';
