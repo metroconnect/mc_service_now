@@ -24,11 +24,15 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         
         var hostMatchArray = currentShortDesc.match(/mc\-\w+\-\w+\d+/i);
         var hostMatch = typeof hostMatchArray === 'object' && hostMatchArray.length ? hostMatchArray[0] : null;
+        var hostMatchRegex = new RegExp("hostMatch","i");
         
         console.log("Short Desc:",currentShortDesc,"Host Match Array:",hostMatchArray,"(",typeof hostMatchArray,")","Host Match:",hostMatch);
         
         var setCaller = "DD Engineer";
-        var setCI =  currentModel == 'DDNC-VIRTUAL_CI' ? '20794095' : currentModel == '' ? '20794095' : 'VIRTUAL_CI';
+        var setCI =     currentModel == 'DDNC-VIRTUAL_CI' ? '20794095'
+                        : currentModel == '' ? '20794095'
+                        : currentModel == 'ME-3400-24FS-A' || 'CISCO7609-S' || 'CISCO7609-S=' ? hostMatch.toUpperCase()
+                        : 'VIRTUAL_CI';
         var setModel = "DDNC-VIRTUAL_CI";
         var setContract = "ES Service Management MetroConnect";
         var setClassification = currentContract == 'ES Service Management MetroConnect' ? 'Fault'
@@ -38,7 +42,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var regexCaller = /^DD Engineer\W+Ethekwini Municipality$/;
         var regexCI =     currentModel == 'DDNC-VIRTUAL_CI' ? /20794095/
                         : currentModel == '' ? /20794095/
-                        : currentModel == 'ME-3400-24FS-A' || 'CISCO7609-S' || 'CISCO7609-S=' ? hostMatch.toUpperCase()
+                        : currentModel == 'ME-3400-24FS-A' || 'CISCO7609-S' || 'CISCO7609-S=' ? hostMatchRegex
                         : /VIRTUAL_CI/;
         var regexModel = /DDNC-VIRTUAL_CI/;
         var regexContract = /ES Service Management MetroConnect/;
