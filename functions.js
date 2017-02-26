@@ -23,7 +23,8 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var currentShortDesc = $("#incident\\.short_description").val();
         
         var hostMatchArray = currentShortDesc.match(/mc\-\w+\-\w+\d+/i);
-        var hostMatch = typeof hostMatchArray === 'object' && hostMatchArray.length ? hostMatchArray[0] : null;
+        console.log("hostMatchArray:",hostMatchArray);
+        var hostMatch = typeof hostMatchArray === 'object' && hostMatchArray != 'null' && hostMatchArray.length ? hostMatchArray[0] : null;
         var hostMatchRegex = new RegExp("hostMatch","i");
         
         console.log("Short Desc:",currentShortDesc,"Host Match Array:",hostMatchArray,"(",typeof hostMatchArray,")","Host Match:",hostMatch);
