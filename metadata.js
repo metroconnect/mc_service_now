@@ -1,7 +1,7 @@
 //==UserScript==
-//@name       MetroConnect ServiceNow Autocomplete (Beta Branch)
+//@name       MetroConnect ServiceNow Autocomplete (Master Branch)
 //@namespace  https://github.com/metroconnect/mc_service_now
-//@version    2.0.6
+//@version    2.0.8
 //@require    https://raw.github.com/metroconnect/mc_service_now/Beta/jquery.min.js
 //@require    https://raw.github.com/metroconnect/mc_service_now/Beta/jquery.simulate.js
 //@require    https://raw.github.com/metroconnect/mc_service_now/Beta/jquery-ui.js

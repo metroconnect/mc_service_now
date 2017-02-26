@@ -1,6 +1,7 @@
 /*   ----------------
  * | Change History  |
  *   ----------------
+	*  v2.0.8 FIX: Fixes to work with Service Now Helsinki Release
  *  v2.0.4 BRANCH: Changed didataservices.service-now.com to test domain dimensiondatacygnus.service-now.com for beta dev
  *  v2.0.3 FIX: Changed didataservices.service-now.com to new domain dimensiondataservices.service-now.com
  *  v1.8.2 FIX: Reminders not working properly, fixed regex complilation to correct this
