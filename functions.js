@@ -24,7 +24,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         
         var hostMatchArray = currentShortDesc.match(/mc\-\w+\-\w+\d+/i);
         console.log("hostMatchArray:",hostMatchArray, typeof hostMatchArray);
-        var hostMatch = typeof hostMatchArray === 'object' && hostMatchArray != 'null' && hostMatchArray.length ? hostMatchArray[0] : null;
+        var hostMatch = typeof hostMatchArray === 'object' && !(typeof hostMatchArray[0] === 'undefined') ? hostMatchArray[0] : null;
         var hostMatchRegex = new RegExp("hostMatch","i");
         
         console.log("Short Desc:",currentShortDesc,"Host Match Array:",hostMatchArray,"(",typeof hostMatchArray,")","Host Match:",hostMatch);
