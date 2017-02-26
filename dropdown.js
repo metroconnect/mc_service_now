@@ -12,7 +12,7 @@ function getDropDown(incidentRequest) {
         '<button id="close_call" style="background-image:url(https://ahouston.net/js/css/smoothness/images/close.png?moo=1213); background-repeat:no-repeat;padding:0px;"></button> ' +
         '<button id="refresh" style="background-image:url(https://ahouston.net/js/css/smoothness/images/refresh.png?moo=1213); background-repeat:no-repeat;padding:0px;"></button> ' +
         '<button id="rerun" disabled style="opacity: 1;padding:0px;">Actions</button> ' +
-        '<button id="select">Select an action</button> ' +
+        '<button id="select" style="padding:0px;>Select an action</button> ' +
                 '</div> ' +
                 '<ul> ';
 
