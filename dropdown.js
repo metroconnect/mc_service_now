@@ -9,8 +9,8 @@ function getDropDown(incidentRequest) {
 		'</style>'+
 		'<div id="split_button_div" style="width: 280px; display: none;"> ' +
         '<div> ' +
-        '<button id="close_call" style="background-image:url(https://ahouston.net/js/css/smoothness/images/close.png?moo=1213); background-size: 29px 29px; background-repeat:no-repeat;padding:0px;"></button> ' +
-        '<button id="refresh" style="background-image:url(https://ahouston.net/js/css/smoothness/images/refresh.png?moo=1213); background-size: 29px 29px; background-repeat:no-repeat;padding:0px;"></button> ' +
+        '<button id="close_call" style="background-image:url(https://ahouston.net/js/css/smoothness/images/close.png?moo=1213); background-size: 24px 24px; background-repeat:no-repeat;padding:0px;"></button> ' +
+        '<button id="refresh" style="background-image:url(https://ahouston.net/js/css/smoothness/images/refresh.png?moo=1213); background-size: 24px 24px; background-repeat:no-repeat;padding:0px;"></button> ' +
         '<button id="rerun" disabled style="opacity: 1;padding:0px;">Actions</button> ' +
         '<button id="select" style="padding:0px;">Select an action</button> ' +
                 '</div> ' +
