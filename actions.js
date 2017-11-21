@@ -9,7 +9,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var resolution_code = "No fault found";
         var rootcause_code = "No fault found";
         var resolution_regex = /Combination of remote and onsite support.+No fault found/;
@@ -30,7 +30,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var resolution_code = "No fault found";
         var rootcause_code = "No fault found";
         var resolution_regex = /Combination of remote and onsite support \> No fault found/;
@@ -51,7 +51,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
             
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var resolution_code = "Communications";
         var rootcause_code = "Bandwith Utilization";
         var resolution_regex = /Solution \> Communications/;
@@ -71,7 +71,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Fibre Optic Break";
         var resolution_code = "Damaged Fibre Cable";
         var rootcause_regex = /Carrier \> Fibre Optic Break/;
@@ -93,7 +93,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Fibre Optic Break";
         var resolution_code = "Damaged Fibre Cable";
         var rootcause_regex = /Carrier \> Fibre Optic Break/;
@@ -115,7 +115,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Fibre Optic Break";
         var resolution_code = "Duplicate";
         var rootcause_regex = /Carrier \> Fibre Optic Break/;
@@ -137,7 +137,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Configuration";
         var resolution_code = "Configuration change";
         var rootcause_regex = /^ConfigurationConfiguration/;
@@ -160,7 +160,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
 
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Hardware Failure";
         var resolution_code = "Hardware unit replaced";
         var rootcause_regex = /MEA root causes \> Hardware \> Hardware Failure/;
@@ -182,7 +182,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Onsite power failure";
         var resolution_code = "Power Restored";
         var rootcause_regex = /MEA root causes \> Power \> Onsite power failure/;
@@ -203,7 +203,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Onsite power failure";
         var resolution_code = "Power Restored";
         var rootcause_regex = /MEA root causes \> Power \> Onsite power failure/;
@@ -224,7 +224,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Onsite power failure";
         var resolution_code = "Duplicate";
         var rootcause_regex = /MEA root causes \> Power \> Onsite power failure/;
@@ -246,7 +246,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Bandwith Utilization";
         var resolution_code = "Configuration changed/restored";
         var rootcause_regex = /Threshold \> Bandwith Utilization/;
@@ -289,7 +289,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
        
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Configuration";
         var resolution_code = "Configuration changed/restored";
         var rootcause_regex = /^ConfigurationConfiguration/;
@@ -309,7 +309,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
         
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/ ;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Configuration";
         var resolution_code = "Configuration changed/restored";
         var rootcause_regex = /^ConfigurationConfiguration/;
