@@ -90,6 +90,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                         if (currentModel == '') {
                                 console.log("Setting CI Model to",setModel);
                                 triggerKeyEventsForString("#sys_display\\.incident\\.u_product",Array(1).join("\b")+setModel,0,0,simMenu,regexModel);
+				console.log("Waiting for Model with regex: ",regexModel);
                                 waitForElementValue("#sys_display\\.incident\\.u_product",regexModel, function() {
                                         console.log("Re-Setting the CI...");
                                         fixEmptyCI();
@@ -126,6 +127,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
                                 });
                         }
                         else {
+					console.log("Inside fixEmptyContract, running the else block");
                                         fixEmptyCaller();
                                         fixEmptyModel();
                                         fixEmptyCI();
@@ -350,8 +352,8 @@ function simMenu(field,regex) {
     else {
         console.warn("Doh! Couldn't find the setWidth function!");
     }
-    console.log("Enabling Debugging...");
-    var doDebug = 1;
+    //console.log("Enabling Debugging...");
+    var doDebug = 0;
     
     if (doDebug) { console.log("This is jackObject"); }
     if (doDebug) { console.log(jackObject); }
