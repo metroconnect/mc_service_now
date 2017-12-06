@@ -268,7 +268,7 @@ function doClosures() {
         $("span:contains('Closure')").click();
 
         var tech_code = "Cisco";
-        var tech_regex = /Cisco/;
+        var tech_regex = /MEA Technologies > Cisco/ ;
         var rootcause_code = "Configuration";
         var resolution_code = "Configuration changed/restored";
         var rootcause_regex = /^ConfigurationConfiguration/;
