@@ -30,8 +30,8 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         console.log("Short Desc:",currentShortDesc,"Host Match Array:",hostMatchArray,"(",typeof hostMatchArray,")","Host Match:",hostMatch);
         
         var setCaller = "DD Engineer";
-        var setCI =     currentModel == 'DDNC-VIRTUAL_CI' ? '20794095'
-                        : currentModel == '' ? '20794095'
+        var setCI =     currentModel == 'DDNC-VIRTUAL_CI' ? '21448912'
+                        : currentModel == '' ? '21448912'
                         : currentModel == 'ME-3400-24FS-A' || 'CISCO7609-S' || 'CISCO7609-S=' ? hostMatch.toUpperCase()
                         : 'VIRTUAL_CI';
         var setModel = "DDNC-VIRTUAL_CI";
