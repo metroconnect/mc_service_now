@@ -32,7 +32,7 @@ function autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resoluti
         var setCaller = "DD Engineer";
         var setCI =     currentModel == 'DDNC-VIRTUAL_CI' ? '21448912'
                         : currentModel == '' ? '21448912'
-                        : currentModel == 'ME-3400-24FS-A' || 'CISCO7609-S' || 'CISCO7609-S=' ? hostMatch.toUpperCase()
+                        : currentModel == 'ME-3400-24FS-A' || 'CISCO7609-S' || 'CISCO7609-S=' ? (!typeof(hostMatch) === 'string' ? '' : hostMatch.toUpperCase())
                         : 'VIRTUAL_CI';
         var setModel = "DDNC-VIRTUAL_CI";
         var setContract = "ES Service Management MetroConnect";
