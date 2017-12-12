@@ -131,7 +131,29 @@ function doClosures() {
         
         
         });
-    
+   
+    $('#config_complete').click(function() {
+
+        $("span:contains('Closure')").click();
+
+        var tech_code = "Cisco";
+        var tech_regex = /MEA Technologies > Cisco/ ;
+        var rootcause_code = "Configuration";
+        var resolution_code = "Configuration change";
+        var rootcause_regex = /^ConfigurationConfiguration/;
+        var resolution_regex = /Dimension Data \> Remote \> Solution \> Configuration change/;
+
+        var close_notes = "The requested configuration has been completed.";
+        var rootcause_notes =  "Configuration change requested by client";
+
+
+        var nameRegex = new RegExp(userName,'i');
+
+        autoClose(incidentRequest,tech_code,tech_regex,resolution_code,resolution_regex,rootcause_code,rootcause_regex,rootcause_notes,close_notes,nameRegex);
+
+
+        });
+ 
     $('#circuit_config_generic').click(function() {
  
         $("span:contains('Closure')").click();

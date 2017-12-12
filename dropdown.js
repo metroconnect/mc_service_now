@@ -26,8 +26,10 @@ function getDropDown(incidentRequest) {
                 ' <li><a id="fibre_break_stable" href="#">Close: Fibre Break - Line is stable</a></li> ' +
                 ' <li><a id="fibre_break_duplicate" href="#">Close: Fibre Break - Duplicate Call</a></li> ' +
                 ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:350px;"></li> ' +
+                ' <li><a id="config_complete" href="#">Close: Requested Configuration Complete</a></li> ' +
                 ' <li><a id="circuit_config_generic" href="#">Close: Circuit - Generic Configuration</a></li> ' +
                 ' <li><a id="hardware_failure" href="#">Close: Network: Hardware Failure</a></li> ' +
+                ' <li><a id="software_failure" href="#">Close: Network: Software Failure</a></li> ' +
                 ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:350px;"></li> ' +
                 ' <li><a id="power_failure_generic" href="#">Close: Power Failure - General </a></li> ' +
                 ' <li><a id="power_failure_ups" href="#">Close: Power Failure - UPS Exhausted</a></li> ' +
@@ -66,9 +68,14 @@ function getDropDown(incidentRequest) {
 
      newButton +=  ' <li><a id="mc_control" href="#">Create: MetroConnect Control Ticket</a></li> ' +
                 ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:350px;"></li> ';
-        }
 
-        if (incidentRequest == 'change' && userName == 'Danni Manilall') {                      // Only needed for Danni
+     newButton +=  ' <li><a id="etk_control" href="#">Create: eThekwini Request Ticket</a></li> ' +
+                ' <li><hr style=" color:#000000; border: 1px #000000;  height:1px; width:350px;"></li> ';
+	
+
+    }
+
+    if (incidentRequest == 'change' && userName == 'Danni Manilall') {                      // Only needed for Danni
 
      newButton +=  ' <li><a id="mc_control" href="#">Create: MetroConnect Control Ticket</a></li> ' +
                 ' <li><hr style=" color:#000000; border: 1px #000000; margin: 5px 0px 0px 0px; height:1px; width:350px;"></li> ';
