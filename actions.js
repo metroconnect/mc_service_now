@@ -364,7 +364,12 @@ function doClosures() {
         
         var group_code = "Metro Connect.KN - Support";
         var group_regex = /Metro Connect.KN - Support/;
-         
+        
+	var product_code = "DDNC-VIRTUAL_CI";
+	var product_regex = /DDNC-VIRTUAL_CI/;
+
+	var ci_code = "21448912";
+	var ci_regex = /21448912.+Global Service/;
           
         var nameRegex = new RegExp(userName,'i');
         
@@ -384,24 +389,32 @@ function doClosures() {
                 
             	waitForElementValue("#incident\\.u_contract",/\w+/, function() { 
                     
-                    // Wait for the contract field to complete
-                            
-                    triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(48).join("\b")+caller_code,0,0,simMenu,caller_regex);
-                    triggerKeyEventsForString("#sys_display\\.incident\\.assignment_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
-                    triggerKeyEventsForString("#sys_display\\.incident\\.u_owner_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
-                    triggerKeyEventsForString("#sys_display\\.incident\\.u_responsible_owner_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
+		    // Fill in the device as it kills the assignments
+		    triggerKeyEventsForString("#sys_display\\.incident\\.u_product",Array(48).join("\b")+product_code,0,0,simMenu,product_regex);
+		    waitForElementValue("#incident\\.u_product",/\w+/, function() { 
+				
+			triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(48).join("\b")+ci_code,0,0,simMenu,ci_regex);
+                    	waitForElementValue("#incident\\.u_contract_ci",/\w+/, function() {	
 
-                    waitForElementValue("#incident\\.assignment_group",/\w+/,function() {
+                    	// Wait for the contract field to complete
+                            
+                    		triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(48).join("\b")+caller_code,0,0,simMenu,caller_regex);
+                    		triggerKeyEventsForString("#sys_display\\.incident\\.assignment_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
+                    		triggerKeyEventsForString("#sys_display\\.incident\\.u_owner_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
+                    		triggerKeyEventsForString("#sys_display\\.incident\\.u_responsible_owner_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
+
+                    		waitForElementValue("#incident\\.assignment_group",/\w+/,function() {
                        
-                        triggerKeyEventsForString("#sys_display\\.incident\\.assigned_to",Array(48).join("\b")+userName,0,0,simMenu,nameRegex);
-                        $("#incident\\.u_next_step_displayed option:contains('Mark as responded')").attr('selected', 'selected').trigger('onchange');
-                        $("#incident\\.u_accepted").val('1').trigger('onchange');
+                        		triggerKeyEventsForString("#sys_display\\.incident\\.assigned_to",Array(48).join("\b")+userName,0,0,simMenu,nameRegex);
+                        		$("#incident\\.u_next_step_displayed option:contains('Mark as responded')").attr('selected', 'selected').trigger('onchange');
+                        		$("#incident\\.u_accepted").val('1').trigger('onchange');
                         
+                    		});
                     });
-                    
-                });
+                 });    
+              });
             
-            });
+         });
  
         }
         else if (incidentRequest == "request") { 
