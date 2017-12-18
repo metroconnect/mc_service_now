@@ -507,8 +507,8 @@ function doClosures() {
         var company_code = "Ethekwini Municipality";
         var company_regex = /\w{32}/ ;				// Match the new 32 byte hex value
         
-        var caller_code = "DD Engineer";
-        var caller_regex = /DD Engineer/;
+        var caller_code = "DD Engineer Ethekwini Municipality";
+        var caller_regex = /DD Engineer Ethekwini Municipality/;
         
         var contract_code = "Uncovered base";
         var contract_regex = /\w{32}/;				// Match the new 32 byte hex value
