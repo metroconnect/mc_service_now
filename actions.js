@@ -516,11 +516,11 @@ function doClosures() {
         var group_code = "Metro Connect.KN - Support";
         var group_regex = /Metro Connect.KN - Support/;
         
-        var product_code = "DDNC-VIRTUAL_CI";
-        var product_regex = /DDNC-VIRTUAL_CI/;
+        var product_code = "7600-ES20-GE3CXL=";
+        var product_regex = /7600-ES20-GE3CXL=/;
 
-        var ci_code = "21448912";
-        var ci_regex = /21448912.+Global Service/;
+        var ci_code = "10665288";
+        var ci_regex = /10665288.+Global Service/;
           
         var nameRegex = new RegExp(userName,'i');
         
