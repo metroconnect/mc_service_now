@@ -502,6 +502,157 @@ function doClosures() {
 
         });
     
+    $('#etk_control').click(function() {
+ 
+        var company_code = "Ethekwini Municipality";
+        var company_regex = /\w{32}/ ;				// Match the new 32 byte hex value
+        
+        var caller_code = "DD Engineer";
+        var caller_regex = /DD Engineer/;
+        
+        var contract_code = "Uncovered base";
+        var contract_regex = /\w{32}/;				// Match the new 32 byte hex value
+        
+        var group_code = "Metro Connect.KN - Support";
+        var group_regex = /Metro Connect.KN - Support/;
+        
+        var product_code = "DDNC-VIRTUAL_CI";
+        var product_regex = /DDNC-VIRTUAL_CI/;
+
+        var ci_code = "21448912";
+        var ci_regex = /21448912.+Global Service/;
+          
+        var nameRegex = new RegExp(userName,'i');
+        
+        if (incidentRequest == "incident") { 
+            
+            $("#sys_display\\.incident\\.company").focus();
+            triggerKeyEventsForString("#sys_display\\.incident\\.company",Array(48).join("\b")+company_code,0,0,simMenu,company_regex);
+          
+	    console.log("#incident\\.company:");
+	    console.log($("#incident\\.company"));
+	    
+            waitForElementValue("#incident\\.company",/\w+/, function() { 
+            	
+            	// Send the Contract now
+                
+                triggerKeyEventsForString("#sys_display\\.incident\\.u_contract",Array(48).join("\b")+contract_code,0,0,simMenu,contract_regex);
+                
+            	waitForElementValue("#incident\\.u_contract",/\w+/, function() { 
+                    
+		    // Fill in the device as it kills the assignments
+		    triggerKeyEventsForString("#sys_display\\.incident\\.u_product",Array(48).join("\b")+product_code,0,0,simMenu,product_regex);
+		    waitForElementValue("#incident\\.u_product",/\w+/, function() { 
+				
+			triggerKeyEventsForString("#sys_display\\.incident\\.u_contract_ci",Array(48).join("\b")+ci_code,0,0,simMenu,ci_regex);
+                    	waitForElementValue("#incident\\.u_contract_ci",/\w+/, function() {	
+
+                    	// Wait for the contract field to complete
+                            
+                    		triggerKeyEventsForString("#sys_display\\.incident\\.u_caller",Array(48).join("\b")+caller_code,0,0,simMenu,caller_regex);
+                    		triggerKeyEventsForString("#sys_display\\.incident\\.assignment_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
+                    		triggerKeyEventsForString("#sys_display\\.incident\\.u_owner_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
+                    		triggerKeyEventsForString("#sys_display\\.incident\\.u_responsible_owner_group",Array(48).join("\b")+group_code,0,0,simMenu,group_regex);
+
+                    		waitForElementValue("#incident\\.assignment_group",/\w+/,function() {
+                       
+                        		triggerKeyEventsForString("#sys_display\\.incident\\.assigned_to",Array(48).join("\b")+userName,0,0,simMenu,nameRegex);
+                        		$("#incident\\.u_next_step_displayed option:contains('Mark as responded')").attr('selected', 'selected').trigger('onchange');
+                        		$("#incident\\.u_accepted").val('1').trigger('onchange');
+                        
+                    		});
+                    });
+                 });    
+              });
+            
+         });
+ 
+        }
+        else if (incidentRequest == "request") { 
+        
+                        $("#sys_display\\.u_request\\.company").focus();
+            triggerKeyEventsForString("#sys_display\\.u_request\\.company","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+company_code,0,0,simMenu,company_regex);
+           
+            
+            waitForCss("#sys_display\\.u_request\\.company","background-color","#FFFFFF",function() { 
+            
+			// $("#status\\.u_request\\.assignment_group").css('background-color','#FFFFFF');
+            	 	// $("#status\\.u_request\\.assignment_group").removeClass('changed');
+            
+                // Wait for the company field to go green
+                // Send the Contract now
+                
+                triggerKeyEventsForString("#sys_display\\.u_request\\.u_contract","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+contract_code,0,0,simMenu,contract_regex);
+                
+                waitForCss("#sys_display\\.u_request\\.u_contract","background-color","#FFFFFF",function() {
+                 
+                    
+                    // Wait for the contract field to complete
+                            
+                    triggerKeyEventsForString("#sys_display\\.u_request\\.u_caller","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+caller_code,0,0,simMenu,caller_regex);
+                                        triggerKeyEventsForString("#sys_display\\.u_request\\.assignment_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
+                    triggerKeyEventsForString("#sys_display\\.u_request\\.u_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
+                                        triggerKeyEventsForString("#sys_display\\.u_request\\.u_responsible_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
+
+                    //triggerKeyEventsForString("#sys_display\\.u_request\\.u_assignment_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);        
+                    waitForValue("#sys_display\\.u_request\\.assignment_group","Metro Connect.KN - Support",function() {
+                       
+                        triggerKeyEventsForString("#sys_display\\.u_request\\.assigned_to","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+userName,0,0,simMenu,nameRegex);
+                        $("#u_request\\.u_next_step_displayed option:contains('Mark as responded')").attr('selected', 'selected').trigger('onchange');
+                        $("#u_request\\.u_accepted").val('Accepted').trigger('onchange');
+                        
+                    });
+                    
+                });
+            
+            });
+
+            
+        }
+        else if (incidentRequest == "change") { 
+        
+            $("#sys_display\\.change_request\\.company").focus();
+            triggerKeyEventsForString("#sys_display\\.change_request\\.company","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+company_code,0,0,simMenu,company_regex);
+           
+            
+            waitForCss("#sys_display\\.change_request\\.company","background-color","#FFFFFF",function() { 
+            
+		//$("#status\\.change_request\\.assignment_group").css('background-color','#FFFFFF');
+            	//$("#status\\.change_request\\.assignment_group").removeClass('changed');
+            
+                // Wait for the company field to go green
+                // Send the Contract now
+                
+                triggerKeyEventsForString("#sys_display\\.change_request\\.u_contract","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+contract_code,0,0,simMenu,contract_regex);
+                
+                waitForCss("#sys_display\\.change_request\\.u_contract","background-color","#FFFFFF",function() {
+                 
+                    
+                    // Wait for the contract field to complete
+                            
+                    triggerKeyEventsForString("#sys_display\\.change_request\\.u_caller","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+caller_code,0,0,simMenu,caller_regex);
+                                        triggerKeyEventsForString("#sys_display\\.change_request\\.assignment_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
+                    triggerKeyEventsForString("#sys_display\\.change_request\\.u_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
+                                        triggerKeyEventsForString("#sys_display\\.change_request\\.u_responsible_owner_group","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+group_code,0,0,simMenu,group_regex);
+
+                    waitForValue("#sys_display\\.change_request\\.assignment_group","Metro Connect.KN - Support",function() {
+                       
+                        triggerKeyEventsForString("#sys_display\\.change_request\\.u_responsible_owner","\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b\b"+userName,0,0,simMenu,nameRegex);
+                        $("#change_request\\.u_next_step_displayed option:contains('Mark as responded')").attr('selected', 'selected').trigger('onchange');
+                        $("#change_request\\.u_accepted").val('Accepted').trigger('onchange');
+                        
+                    });
+                    
+                });
+            
+            });
+
+            
+        }
+                  
+
+        });
+    
     $('a.workload').click(function() {
  
         var workloadID = $(this).attr("id");
